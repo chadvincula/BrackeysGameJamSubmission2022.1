@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/PlayerController.unity
+    guid: 41ae8ad21b9724a4e80e837127b4c71e
+  - enabled: 1
+    path: Assets/Scenes/Days/Day1.unity
+    guid: 13fe7a2575c1367419f956e2f54d7c0d
+  - enabled: 1
+    path: Assets/Scenes/Days/Day2.unity
+    guid: 122108af4c09c6843b80e042e091a826
+  - enabled: 1
+    path: Assets/Scenes/Days/Day3.unity
+    guid: 4529b37167e7c564b85a737010b8f659
+  - enabled: 1
+    path: Assets/Scenes/Days/Day4.unity
+    guid: 8e875fd444b29a244bd7c9d02fab9599
+  - enabled: 1
+    path: Assets/Scenes/Days/Closet.unity
+    guid: 2a575f663c7204a4a8fa4c20b9a5fc61
+  - enabled: 1
+    path: Assets/Scenes/Days/TheBackrooms.unity
+    guid: 8d5300e15f0b7414096fe1e145ce73a8
   m_configObjects: {}

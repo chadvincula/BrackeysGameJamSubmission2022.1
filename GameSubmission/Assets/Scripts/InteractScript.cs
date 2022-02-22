@@ -8,7 +8,9 @@ public class InteractScript : MonoBehaviour
 {
     private Player _player;
     private PlayerControls _playerControls;
-    private bool _canInteract = false, _isInteracting = false;
+    protected bool _canInteract = false, _isInteracting = false;
+
+    public GameObject textBox;
 
     private void Awake()
     {
@@ -29,20 +31,24 @@ public class InteractScript : MonoBehaviour
     }
 
     //Note: Unfinished, you need to set isInteracting to true so that you don't trigger it twice.
-    private void HandleInteract(InputAction.CallbackContext context)
+    protected virtual void HandleInteract(InputAction.CallbackContext context)
     {
-        if(_canInteract) Debug.Log("You've reached a checkpoint!");
+        if (!_canInteract) return;
+        textBox.SetActive(true);
+        _isInteracting = true;
     }
 
     //Triggers when in range to interact with something.
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         _canInteract = true;
     }
 
     //Makes sure the player doesn't interact with something out of range.
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         _canInteract = false;
+        _isInteracting = false;
+        textBox.SetActive(false);
     }
 }
