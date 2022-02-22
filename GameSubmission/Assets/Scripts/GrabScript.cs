@@ -42,10 +42,12 @@ public class GrabScript : MonoBehaviour
                 _isGrabbing = true;
                 _grabbableObject.transform.parent = transform;
                 _grabbableObject.transform.localPosition = Vector3.zero;
+                _grabbableObject.GetComponent<Rigidbody>().isKinematic = true;
                 break;
             case true:
                 _isGrabbing = false;
                 _grabbableObject.transform.parent = null;
+                _grabbableObject.GetComponent<Rigidbody>().isKinematic = false;
                 break;
         }
     }
