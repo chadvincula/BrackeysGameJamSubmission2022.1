@@ -61,4 +61,26 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player is Jumping");
     }
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.moveDirection.y >= -0.3f)
+        {
+            // Debug.Break();
+            Rigidbody rb = hit.collider.attachedRigidbody;
+            if(rb != null)
+            {
+                // Debug.Break();
+                // Vector3 forceDirection = transform.position - hit.transform.position;
+                // forceDirection.y = 0f;
+                // forceDirection.Normalize();
+
+                
+                var inputDirection = _playerInput.Player.Move.ReadValue<float>();
+                float pushForce = (rb.mass <= 1f) ? inputDirection * groundSpeed : inputDirection * groundSpeed / rb.mass;
+                var movingVector = new Vector3(pushForce, 0f, 0f);
+                rb.AddForceAtPosition(movingVector, transform.position, ForceMode.Force);
+            }
+        }
+    }
 }
