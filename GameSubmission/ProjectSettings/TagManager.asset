@@ -19,8 +19,8 @@ TagManager:
   - PlayerCollisionLayer
   - SmallBoxes
   - LargeBoxes
-  - 
-  - 
+  - EntityVision
+  - EntityCollisionLayer
   - 
   - 
   - 
