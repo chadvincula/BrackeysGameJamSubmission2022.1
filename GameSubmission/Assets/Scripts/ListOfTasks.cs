@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ListOfTasks : MonoBehaviour
 {
+    private bool _isDeletingATask = false;
     private List<RectTransform> myTasks = new List<RectTransform>();
     private PlayerControls _playerControls;
 
@@ -72,12 +73,23 @@ public class ListOfTasks : MonoBehaviour
 
     public void CompleteTask(int index)
     {
-        if(myTasks.Count > index)
+        if(myTasks.Count > index && !_isDeletingATask)
         {
-            Destroy(myTasks[index].gameObject);
-            myTasks.RemoveAt(index);
-            SetTaskPositions();
+            StartCoroutine(DeleteTask(index));
         }
+    }
+
+    public IEnumerator DeleteTask(int index)
+    {
+        Animation taskAnimation = myTasks[index].GetComponent<Animation>();
+        Debug.Log(taskAnimation.Play());
+        _isDeletingATask = true;
+        while(taskAnimation.isPlaying)
+            yield return null;
+        Destroy(myTasks[index].gameObject);
+        myTasks.RemoveAt(index);
+        SetTaskPositions();
+        _isDeletingATask = false;
     }
 
     public void CompleteTaskOne(InputAction.CallbackContext context)
