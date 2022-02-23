@@ -8,6 +8,12 @@ TagManager:
   - Interactable
   - LeaveClosetRoom
   - EnterClosetRoom
+  - EnterBR2
+  - EnterBR3
+  - EnterBR4
+  - LeaveBR2
+  - LeaveBR3
+  - LeaveBR4
   layers:
   - Default
   - TransparentFX
@@ -23,10 +29,10 @@ TagManager:
   - LargeBoxes
   - OfficeLayer1
   - OfficeLayer2
-  - 
-  - 
-  - 
-  - 
+  - BR_Layer1
+  - BR_Layer2
+  - BR_Layer3
+  - BR_Layer4
   - 
   - 
   - 
