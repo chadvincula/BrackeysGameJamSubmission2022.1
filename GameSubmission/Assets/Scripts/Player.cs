@@ -12,12 +12,15 @@ public class Player : MonoBehaviour
     
     //Hidden Variables tied to the player. Add more as needed.
     private float _sanity = 0f, _gravity = -9.81f;
-    private bool _isHidden = false;
+    private bool _isHidden = false, _canShift = true;
+    public string shiftAction;
 
     //References to PlayerInput and CharacterController
     private PlayerControls _playerInput;
     private CharacterController _body;
     private Vector3 _velocity;
+
+    public VisibilityScript visibilityScript;
 
     private void Awake()
     {
@@ -30,6 +33,8 @@ public class Player : MonoBehaviour
         _playerInput.Enable();
         _playerInput.Player.Move.performed += HandleMove;
         _playerInput.Player.Jump.performed += HandleJump;
+        _playerInput.Player.ShiftUp.performed += HandleSUP;
+        _playerInput.Player.ShiftDown.performed += HandleSDN;
     }
 
     private void OnDisable()
@@ -37,6 +42,8 @@ public class Player : MonoBehaviour
         _playerInput.Disable();
         _playerInput.Player.Move.performed -= HandleMove;
         _playerInput.Player.Jump.performed -= HandleJump;
+        _playerInput.Player.ShiftUp.performed -= HandleSUP;
+        _playerInput.Player.ShiftDown.performed -= HandleSDN;
     }
 
     private void Update()
@@ -69,5 +76,75 @@ public class Player : MonoBehaviour
     private void HandleJump(InputAction.CallbackContext context)
     {
         if(_body.isGrounded) _velocity.y += jumpStrength;
+    }
+
+    private void HandleSUP(InputAction.CallbackContext context)
+    {
+        if (!_canShift) return;
+        switch (shiftAction)
+        {
+            case "EnterBR2":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer2();
+                break;
+            case "EnterBR3":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer3();
+                break;
+            case "EnterBR4":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer4();
+                break;
+            case "EnterClosetRoom":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer2();
+                break;
+        }
+    }
+
+    private void HandleSDN(InputAction.CallbackContext context)
+    {
+        if (!_canShift) return;
+        switch (shiftAction)
+        {
+            case "LeaveBR2":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer2();
+                break;
+            case "LeaveBR3":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer3();
+                break;
+            case "LeaveBR4":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer4();
+                break;
+            case "LeaveClosetRoom":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer2();
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnterBR2") || other.CompareTag("EnterBR3") || other.CompareTag("EnterBR4") ||
+            other.CompareTag("LeaveBR2") || other.CompareTag("LeaveBR3") || other.CompareTag("LeaveBR4") ||
+            other.CompareTag("EnterClosetRoom") || other.CompareTag("LeaveClosetRoom"))
+        {
+            _canShift = true;
+            shiftAction = other.tag;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnterBR2") || other.CompareTag("EnterBR3") || other.CompareTag("EnterBR4") ||
+            other.CompareTag("LeaveBR2") || other.CompareTag("LeaveBR3") || other.CompareTag("LeaveBR4") ||
+            other.CompareTag("EnterClosetRoom") || other.CompareTag("LeaveClosetRoom"))
+        {
+            _canShift = false;
+            shiftAction = null;
+        }
     }
 }

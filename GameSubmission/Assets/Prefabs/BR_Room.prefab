@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7916081377072908172}
   - component: {fileID: 7707632262492064121}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: MidOpening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883457542712421093}
   - component: {fileID: 1920796442797032590}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: LeftOpening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 6093286779634351755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.65, z: -1.76}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 2, y: 1.75, z: 1.75}
   m_Children:
   - {fileID: 6093286779769061789}
   m_Father: {fileID: 6093286778960654856}
@@ -599,7 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7218622744560861077}
   - component: {fileID: 2597896722638096862}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: RightOpening
   m_TagString: Untagged
   m_Icon: {fileID: 0}

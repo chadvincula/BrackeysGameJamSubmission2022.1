@@ -27,12 +27,12 @@ TagManager:
   - PlayerCollisionLayer
   - SmallBoxes
   - LargeBoxes
-  - OfficeLayer1
-  - OfficeLayer2
-  - BR_Layer1
-  - BR_Layer2
-  - BR_Layer3
-  - BR_Layer4
+  - ShiftLayer
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
