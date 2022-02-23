@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class InteractScript : MonoBehaviour
 {
     private PlayerControls _playerControls;
-    private bool _canInteract = false, _isInteracting = false;
+    private bool _isInteracting = false;
+    protected bool _canInteract = false;
     protected Player _player;
 
     private void Awake()
@@ -47,7 +48,8 @@ public class InteractScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _canInteract = true;
-        _player = other.gameObject.GetComponentInParent<Player>();
+        if(other.gameObject.GetComponentInParent<Player>() != null)
+            _player = other.gameObject.GetComponentInParent<Player>();
     }
 
     //Makes sure the player doesn't interact with something out of range.

@@ -15,7 +15,8 @@ public class HidingSpot : InteractScript
     // Update is called once per frame
     void Update()
     {
-        
+        if(_playerInHiding && !_canInteract)
+            _canInteract = true;
     }
 
     protected override void PerformInteraction()
