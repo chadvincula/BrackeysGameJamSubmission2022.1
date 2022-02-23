@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HidingSpot : InteractScript
 {
+    [SerializeField] private bool isMobile = false;
     private bool _playerInHiding = false;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,15 @@ public class HidingSpot : InteractScript
     private void HidePlayer()
     {
         _playerInHiding = true;
-        _player.enabled = false;
+        if(isMobile)
+        {
+            transform.parent = _player.transform;
+            Vector3 tempPosition = transform.localPosition;
+            tempPosition.x = 0f;
+            transform.localPosition = tempPosition;
+        }
+        else
+            _player.enabled = false;
         SpriteRenderer spriteRenderer = _player.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
         Physics.IgnoreLayerCollision(9, 12, true); //Player x EntityVision
@@ -44,7 +53,10 @@ public class HidingSpot : InteractScript
     private void UnHidePlayer()
     {
         _playerInHiding = false;
-        _player.enabled = true;
+        if(isMobile)
+            transform.parent = null;
+        else
+            _player.enabled = true;
         SpriteRenderer spriteRenderer = _player.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
         Physics.IgnoreLayerCollision(9, 12, false);
