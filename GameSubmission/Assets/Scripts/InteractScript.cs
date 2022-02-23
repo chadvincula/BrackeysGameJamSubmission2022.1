@@ -31,8 +31,11 @@ public class InteractScript : MonoBehaviour
     //Note: Unfinished, you need to set isInteracting to true so that you don't trigger it twice.
     private void HandleInteract(InputAction.CallbackContext context)
     {
-        if(_canInteract) Debug.Log("You've reached a checkpoint!");
-        PerformInteraction();
+        if(_canInteract)
+        {
+            Debug.Log("You've reached a checkpoint!");
+            PerformInteraction();
+        }
     }
 
     protected virtual void PerformInteraction()
