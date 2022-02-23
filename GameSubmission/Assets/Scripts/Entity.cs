@@ -8,11 +8,13 @@ public class Entity : MonoBehaviour
     [SerializeField] private Vector3[] respawnPoints;
     private float _gravity = -9.81f, _moveDirection = 1f;
     private bool _playerSpotted = false, _isStandingStill = false;
+    private SpriteRenderer _spriteRenderer = null;
     private CharacterController _body = null;
     private PlayerDetection _playerSensor = null;
 
     private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _body = GetComponent<CharacterController>();
         _playerSensor = GetComponentInChildren<PlayerDetection>();
     }
@@ -58,6 +60,7 @@ public class Entity : MonoBehaviour
 
     private IEnumerator Wait(float seconds)
     {
+        // Debug.Log("Waiting");
         _isStandingStill = true;
         yield return new WaitForSeconds(seconds);
         _isStandingStill = false;
@@ -99,49 +102,42 @@ public class Entity : MonoBehaviour
     {
         float randomNum = Random.Range(0f, (float)respawnPoints.Length);
         int randomIndex = Mathf.FloorToInt(randomNum);
+        Debug.Log("Random index: " + randomIndex);
+        _body.enabled = false; //Disable to allow warping
         transform.position = respawnPoints[randomIndex];
+        _body.enabled = true;
+        Debug.Log("Respawn Position: " + respawnPoints[randomIndex] + "\nTransform: " + transform.position);
+        StartCoroutine(Wait(1f));
     }
 
     private void BecomeTranslucent()
     {
         //Set alpha = remaining sanity lvl?
+        Color semiTransparent = new Color(1f, 1f, 1f, 0.3f);
+        _spriteRenderer.color = semiTransparent;
     }
 
     private void HitPlayer()
     {
         Debug.Log("PLAYER HIT");
-        // RespawnAtRandomKeyPosition();
+        RespawnAtRandomKeyPosition();
         BecomeTranslucent();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnControllerColliderHit(ControllerColliderHit other)
     {
         if(other.gameObject.TryGetComponent(out Player player))
         {
             HitPlayer();
         }
-    }
-
-    private void OnCollisionStay(Collision other)
-    {
-        //Bumping into anything other than the player forces the Entity
-        //to stand still
-        if(!other.gameObject.TryGetComponent(out Player player))
+        else
         {
-            Collider myCollider = GetComponent<Collider>();
-            foreach (ContactPoint contact in other.contacts)
+            if((_body.collisionFlags & CollisionFlags.Sides) != 0 && !_isStandingStill)
             {
-                // Debug.Log("Contact Point Height: " + contact.point.y + "\nPosition Height: " + myCollider.transform.position.y);
-                if(contact.point.y > myCollider.transform.position.y - myCollider.bounds.extents.y / 2)
-                {
-                    float timeToStandStill = 3f;
-                    StartCoroutine(Wait(timeToStandStill));
-                    break;
-                }
+                Debug.Log("Finna stand still");
+                float timeToStandStill = 3f;
+                StartCoroutine(Wait(timeToStandStill));
             }
-
-            //Maybe add special behavior when coming across a small box
-
         }
     }
 }
