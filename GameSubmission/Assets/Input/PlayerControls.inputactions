@@ -110,6 +110,114 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DevShortcuts",
+            "id": "69b4c5e8-5156-4c7d-ae2c-f7b6d9ee8ccf",
+            "actions": [
+                {
+                    "name": "CompleteTaskOne",
+                    "type": "Button",
+                    "id": "175865df-1797-4f88-9613-1606dc009668",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CompleteTaskTwo",
+                    "type": "Button",
+                    "id": "790fe839-8fb6-44f9-9e6e-b156b4dda400",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CompleteTaskThree",
+                    "type": "Button",
+                    "id": "f811f24c-6682-4333-a8ec-d9a189a4a0b4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CompleteTaskFour",
+                    "type": "Button",
+                    "id": "52bd0c52-09f3-4048-b363-6586527ba3d1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CompleteTaskFive",
+                    "type": "Button",
+                    "id": "384fa2de-2e4d-4029-b7ed-2fda843e1904",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1df37eb8-d9da-4158-b59c-9f357e92665f",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CompleteTaskOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c31679f-eb45-4861-886e-8da64b361152",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CompleteTaskTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a6987a6-6161-4728-ac2e-62d058787833",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CompleteTaskThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1276e62b-9b58-4df6-b578-9711d20ec808",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CompleteTaskFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3a87966-ae49-4697-9dd9-9b0cc75cc9dd",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CompleteTaskFive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
