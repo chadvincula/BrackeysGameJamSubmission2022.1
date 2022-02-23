@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class InteractScript : MonoBehaviour
 {
-    private Player _player;
     private PlayerControls _playerControls;
     private bool _canInteract = false, _isInteracting = false;
+    protected Player _player;
 
     private void Awake()
     {
@@ -32,12 +32,19 @@ public class InteractScript : MonoBehaviour
     private void HandleInteract(InputAction.CallbackContext context)
     {
         if(_canInteract) Debug.Log("You've reached a checkpoint!");
+        PerformInteraction();
+    }
+
+    protected virtual void PerformInteraction()
+    {
+        Debug.Log("Performing Interaction...");
     }
 
     //Triggers when in range to interact with something.
     private void OnTriggerEnter(Collider other)
     {
         _canInteract = true;
+        _player = other.gameObject.GetComponentInParent<Player>();
     }
 
     //Makes sure the player doesn't interact with something out of range.
