@@ -48,36 +48,30 @@ public class Entity : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 180, 0); //Moving Left.
             _moveDirection = -1f;
-            // Debug.Log("Turn Left");
         }
         else if (_body.velocity.x > 0 || transform.rotation.y == 1)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0); //Moving Right.
             _moveDirection = 1f;
-            // Debug.Log("Turn Right");
         }
     }
 
     private IEnumerator Wait(float seconds)
     {
-        // Debug.Log("Waiting");
         _isStandingStill = true;
         yield return new WaitForSeconds(seconds);
         _isStandingStill = false;
-        // Debug.Log("Done waiting");
         FlipEntity();
     }
 
     private void Walk(float direction)
     {
-        // Debug.Log("Walking");
         var movingVector = new Vector3(direction * walkSpeed, 0f, 0f);
         _body.Move(movingVector * Time.deltaTime);
     }
 
     private void Run(float direction)
     {
-        // Debug.Log("Running");
         var movingVector = new Vector3(direction * runSpeed, 0f, 0f);
         _body.Move(movingVector * Time.deltaTime);
     }
@@ -86,10 +80,6 @@ public class Entity : MonoBehaviour
     private void Patrol(float direction)
     {
         Walk(direction);
-        //Use box collider to see player
-        // if(_playerSensor.playerDetected)
-        //     return false;
-        // return true;
     }
 
     //Maybe?
@@ -107,7 +97,9 @@ public class Entity : MonoBehaviour
     //Call this after colliding with the player
     private void RespawnAtRandomKeyPosition()
     {
-
+        float randomNum = Random.Range(0f, (float)respawnPoints.Length);
+        int randomIndex = Mathf.FloorToInt(randomNum);
+        transform.position = respawnPoints[randomIndex];
     }
 
     private void BecomeTranslucent()
@@ -117,20 +109,24 @@ public class Entity : MonoBehaviour
 
     private void HitPlayer()
     {
-        // Debug.Log("PLAYER HIT");
-        RespawnAtRandomKeyPosition();
+        Debug.Log("PLAYER HIT");
+        // RespawnAtRandomKeyPosition();
         BecomeTranslucent();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out Player player))
         {
             HitPlayer();
         }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
         //Bumping into anything other than the player forces the Entity
         //to stand still
-        else
+        if(!other.gameObject.TryGetComponent(out Player player))
         {
             Collider myCollider = GetComponent<Collider>();
             foreach (ContactPoint contact in other.contacts)
@@ -144,7 +140,7 @@ public class Entity : MonoBehaviour
                 }
             }
 
-                //Maybe add special behavior when coming across a small box
+            //Maybe add special behavior when coming across a small box
 
         }
     }
