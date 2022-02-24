@@ -30,7 +30,7 @@ public class SanityContoller : MonoBehaviour
     {
         sanity += amount;
         _sanityFill.fillAmount = sanity;
-        if (sanity >= 1) SceneManager.LoadScene("Day1");
+        if (sanity >= 1) ResetToDayOne();
     }
 
     public void SaveSanityToProgress()
@@ -48,5 +48,10 @@ public class SanityContoller : MonoBehaviour
             _sanityFill.fillAmount = sanity;
             _timer = 0;
         }
+    }
+
+    public void ResetToDayOne()
+    {
+        SceneManager.LoadScene("Day1");
     }
 }
