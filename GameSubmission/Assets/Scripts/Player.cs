@@ -145,6 +145,8 @@ public class Player : MonoBehaviour
         {
             _canShift = false;
             shiftAction = null;
+        }
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
