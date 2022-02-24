@@ -9,10 +9,11 @@ public class InteractScript : MonoBehaviour
     private PlayerControls _playerControls;
     protected bool _canInteract = false, _isInteracting = false;
     protected Player _player;
+    protected GameObject currentTextbox = null;
 
     public GameObject textBox;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _player = GetComponentInParent<Player>();
         _playerControls = new PlayerControls();
@@ -34,7 +35,8 @@ public class InteractScript : MonoBehaviour
     protected virtual void HandleInteract(InputAction.CallbackContext context)
     {
         if (!_canInteract) return;
-        textBox.SetActive(true);
+        // textBox.SetActive(true);
+        currentTextbox = textBox;
         _isInteracting = true;
         Debug.Log("You've reached a checkpoint!");
         PerformInteraction();
@@ -43,6 +45,7 @@ public class InteractScript : MonoBehaviour
     protected virtual void PerformInteraction()
     {
         Debug.Log("Performing Interaction...");
+        currentTextbox.SetActive(true);
     }
 
     //Triggers when in range to interact with something.
@@ -58,6 +61,8 @@ public class InteractScript : MonoBehaviour
     {
         _canInteract = false;
         _isInteracting = false;
-        textBox.SetActive(false);
+        // textBox.SetActive(false);
+        if(currentTextbox != null)
+            currentTextbox.SetActive(false);
     }
 }
