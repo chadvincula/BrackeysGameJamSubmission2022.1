@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ListOfTasks : MonoBehaviour
 {
     private bool _isDeletingATask = false;
     private List<RectTransform> myTasks = new List<RectTransform>();
+    private SanityContoller _sanityContoller;
     private PlayerControls _playerControls;
 
     private void Awake()
     {
         InitializeTasks();
+        _sanityContoller = FindObjectOfType<SanityContoller>();
         #if UNITY_EDITOR // For dev shortcuts
             _playerControls = new PlayerControls();
         #endif
@@ -81,15 +84,19 @@ public class ListOfTasks : MonoBehaviour
 
     public IEnumerator DeleteTask(int index)
     {
-        Animation taskAnimation = myTasks[index].GetComponent<Animation>();
-        Debug.Log(taskAnimation.Play());
-        _isDeletingATask = true;
-        while(taskAnimation.isPlaying)
-            yield return null;
-        Destroy(myTasks[index].gameObject);
-        myTasks.RemoveAt(index);
-        SetTaskPositions();
-        _isDeletingATask = false;
+        TaskScript currentTask = myTasks[index].GetComponent<TaskScript>();
+        if(currentTask.Finish(_sanityContoller))
+        {
+            Animation taskAnimation = myTasks[index].GetComponent<Animation>();
+            Debug.Log(taskAnimation.Play());
+            _isDeletingATask = true;
+            while(taskAnimation.isPlaying)
+                yield return null;
+            Destroy(myTasks[index].gameObject);
+            myTasks.RemoveAt(index);
+            SetTaskPositions();
+            _isDeletingATask = false;
+        }
     }
 
     public void CompleteTaskOne(InputAction.CallbackContext context)

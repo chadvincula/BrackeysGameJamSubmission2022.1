@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2676425280025845433}
   - component: {fileID: 2676425280025845434}
   - component: {fileID: 5741971804034155453}
+  - component: {fileID: 2107733249594796856}
   m_Layer: 5
   m_Name: TaskText
   m_TagString: Untagged
@@ -229,6 +230,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2107733249594796856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676425280025845428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463669a470fe5424eb8d0f752f004918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityCost: -0.4
 --- !u!1 &2676425280967561942
 GameObject:
   m_ObjectHideFlags: 0
