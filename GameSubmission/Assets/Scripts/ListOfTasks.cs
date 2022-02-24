@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ListOfTasks : MonoBehaviour
 {
+    [SerializeField] float endOfDayFourThreshold = 0.4f;
     private bool _isDeletingATask = false;
     private List<RectTransform> myTasks = new List<RectTransform>();
     private SanityContoller _sanityContoller;
@@ -96,6 +97,13 @@ public class ListOfTasks : MonoBehaviour
             myTasks.RemoveAt(index);
             SetTaskPositions();
             _isDeletingATask = false;
+
+            if(myTasks.Count <= 0)
+            {
+                if(gameObject.scene.name == "Day4" && _sanityContoller.GetSanity() < endOfDayFourThreshold)
+                    _sanityContoller.ResetToDayOne();
+            }
+
         }
     }
 
