@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     
     //Hidden Variables tied to the player. Add more as needed.
     private float _sanity = 0f, _gravity = -9.81f;
-    private bool _isHidden = false;
+    private bool _isHidden = false, _canMove = false;
 
     //References to PlayerInput and CharacterController
     private PlayerControls _playerInput;
@@ -90,6 +90,20 @@ public class Player : MonoBehaviour
                 var movingVector = new Vector3(pushForce, 0f, 0f);
                 rb.AddForceAtPosition(movingVector, transform.position, ForceMode.Force);
             }
+        }
+    }
+
+    public void AllowMovement(bool permissionToMove)
+    {
+        if(permissionToMove)
+        {
+            _playerInput.Player.Move.Enable();
+            _playerInput.Player.Jump.Enable();
+        }
+        else
+        {
+            _playerInput.Player.Move.Disable();
+            _playerInput.Player.Jump.Disable();
         }
     }
 }
