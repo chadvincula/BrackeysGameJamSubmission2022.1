@@ -172,6 +172,114 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""DevShortcuts"",
+            ""id"": ""69b4c5e8-5156-4c7d-ae2c-f7b6d9ee8ccf"",
+            ""actions"": [
+                {
+                    ""name"": ""CompleteTaskOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""175865df-1797-4f88-9613-1606dc009668"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CompleteTaskTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""790fe839-8fb6-44f9-9e6e-b156b4dda400"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CompleteTaskThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""f811f24c-6682-4333-a8ec-d9a189a4a0b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CompleteTaskFour"",
+                    ""type"": ""Button"",
+                    ""id"": ""52bd0c52-09f3-4048-b363-6586527ba3d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CompleteTaskFive"",
+                    ""type"": ""Button"",
+                    ""id"": ""384fa2de-2e4d-4029-b7ed-2fda843e1904"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1df37eb8-d9da-4158-b59c-9f357e92665f"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteTaskOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c31679f-eb45-4861-886e-8da64b361152"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteTaskTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a6987a6-6161-4728-ac2e-62d058787833"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteTaskThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1276e62b-9b58-4df6-b578-9711d20ec808"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteTaskFour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3a87966-ae49-4697-9dd9-9b0cc75cc9dd"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteTaskFive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -184,6 +292,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ShiftUp = m_Player.FindAction("ShiftUp", throwIfNotFound: true);
         m_Player_ShiftDown = m_Player.FindAction("ShiftDown", throwIfNotFound: true);
+        // DevShortcuts
+        m_DevShortcuts = asset.FindActionMap("DevShortcuts", throwIfNotFound: true);
+        m_DevShortcuts_CompleteTaskOne = m_DevShortcuts.FindAction("CompleteTaskOne", throwIfNotFound: true);
+        m_DevShortcuts_CompleteTaskTwo = m_DevShortcuts.FindAction("CompleteTaskTwo", throwIfNotFound: true);
+        m_DevShortcuts_CompleteTaskThree = m_DevShortcuts.FindAction("CompleteTaskThree", throwIfNotFound: true);
+        m_DevShortcuts_CompleteTaskFour = m_DevShortcuts.FindAction("CompleteTaskFour", throwIfNotFound: true);
+        m_DevShortcuts_CompleteTaskFive = m_DevShortcuts.FindAction("CompleteTaskFive", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +427,71 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // DevShortcuts
+    private readonly InputActionMap m_DevShortcuts;
+    private IDevShortcutsActions m_DevShortcutsActionsCallbackInterface;
+    private readonly InputAction m_DevShortcuts_CompleteTaskOne;
+    private readonly InputAction m_DevShortcuts_CompleteTaskTwo;
+    private readonly InputAction m_DevShortcuts_CompleteTaskThree;
+    private readonly InputAction m_DevShortcuts_CompleteTaskFour;
+    private readonly InputAction m_DevShortcuts_CompleteTaskFive;
+    public struct DevShortcutsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public DevShortcutsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CompleteTaskOne => m_Wrapper.m_DevShortcuts_CompleteTaskOne;
+        public InputAction @CompleteTaskTwo => m_Wrapper.m_DevShortcuts_CompleteTaskTwo;
+        public InputAction @CompleteTaskThree => m_Wrapper.m_DevShortcuts_CompleteTaskThree;
+        public InputAction @CompleteTaskFour => m_Wrapper.m_DevShortcuts_CompleteTaskFour;
+        public InputAction @CompleteTaskFive => m_Wrapper.m_DevShortcuts_CompleteTaskFive;
+        public InputActionMap Get() { return m_Wrapper.m_DevShortcuts; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DevShortcutsActions set) { return set.Get(); }
+        public void SetCallbacks(IDevShortcutsActions instance)
+        {
+            if (m_Wrapper.m_DevShortcutsActionsCallbackInterface != null)
+            {
+                @CompleteTaskOne.started -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskOne;
+                @CompleteTaskOne.performed -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskOne;
+                @CompleteTaskOne.canceled -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskOne;
+                @CompleteTaskTwo.started -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskTwo;
+                @CompleteTaskTwo.performed -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskTwo;
+                @CompleteTaskTwo.canceled -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskTwo;
+                @CompleteTaskThree.started -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskThree;
+                @CompleteTaskThree.performed -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskThree;
+                @CompleteTaskThree.canceled -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskThree;
+                @CompleteTaskFour.started -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFour;
+                @CompleteTaskFour.performed -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFour;
+                @CompleteTaskFour.canceled -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFour;
+                @CompleteTaskFive.started -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFive;
+                @CompleteTaskFive.performed -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFive;
+                @CompleteTaskFive.canceled -= m_Wrapper.m_DevShortcutsActionsCallbackInterface.OnCompleteTaskFive;
+            }
+            m_Wrapper.m_DevShortcutsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @CompleteTaskOne.started += instance.OnCompleteTaskOne;
+                @CompleteTaskOne.performed += instance.OnCompleteTaskOne;
+                @CompleteTaskOne.canceled += instance.OnCompleteTaskOne;
+                @CompleteTaskTwo.started += instance.OnCompleteTaskTwo;
+                @CompleteTaskTwo.performed += instance.OnCompleteTaskTwo;
+                @CompleteTaskTwo.canceled += instance.OnCompleteTaskTwo;
+                @CompleteTaskThree.started += instance.OnCompleteTaskThree;
+                @CompleteTaskThree.performed += instance.OnCompleteTaskThree;
+                @CompleteTaskThree.canceled += instance.OnCompleteTaskThree;
+                @CompleteTaskFour.started += instance.OnCompleteTaskFour;
+                @CompleteTaskFour.performed += instance.OnCompleteTaskFour;
+                @CompleteTaskFour.canceled += instance.OnCompleteTaskFour;
+                @CompleteTaskFive.started += instance.OnCompleteTaskFive;
+                @CompleteTaskFive.performed += instance.OnCompleteTaskFive;
+                @CompleteTaskFive.canceled += instance.OnCompleteTaskFive;
+            }
+        }
+    }
+    public DevShortcutsActions @DevShortcuts => new DevShortcutsActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -320,5 +500,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnShiftUp(InputAction.CallbackContext context);
         void OnShiftDown(InputAction.CallbackContext context);
+    }
+    public interface IDevShortcutsActions
+    {
+        void OnCompleteTaskOne(InputAction.CallbackContext context);
+        void OnCompleteTaskTwo(InputAction.CallbackContext context);
+        void OnCompleteTaskThree(InputAction.CallbackContext context);
+        void OnCompleteTaskFour(InputAction.CallbackContext context);
+        void OnCompleteTaskFive(InputAction.CallbackContext context);
     }
 }

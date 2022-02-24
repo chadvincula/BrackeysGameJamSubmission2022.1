@@ -30,7 +30,7 @@ public class SanityContoller : MonoBehaviour
     {
         sanity += amount;
         _sanityFill.fillAmount = sanity;
-        if (sanity >= 1) SceneManager.LoadScene("Day1");
+        if (sanity >= 1) ResetToDayOne();
     }
 
     public void SaveSanityToProgress()
@@ -47,6 +47,28 @@ public class SanityContoller : MonoBehaviour
             if (sanity < 0) sanity = 0;
             _sanityFill.fillAmount = sanity;
             _timer = 0;
+        }
+    }
+
+    public void ResetToDayOne()
+    {
+        SceneManager.LoadScene("Day1");
+    }
+
+    public void ProceedToNextDay()
+    {
+        switch(gameObject.scene.name)
+        {
+            case "Day1":
+            case "CharlesTestScene":
+                SceneManager.LoadScene("Day2");
+                break;
+            case "Day2":
+                SceneManager.LoadScene("Day3");
+                break;
+            case "Day3":
+                SceneManager.LoadScene("Day4");
+                break;
         }
     }
 }

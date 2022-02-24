@@ -169,4 +169,18 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    public void AllowMovement(bool permissionToMove)
+    {
+        if(permissionToMove)
+        {
+            _playerInput.Player.Move.Enable();
+            _playerInput.Player.Jump.Enable();
+        }
+        else
+        {
+            _playerInput.Player.Move.Disable();
+            _playerInput.Player.Jump.Disable();
+        }
+    }
 }
