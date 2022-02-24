@@ -62,6 +62,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShiftUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""169b1632-706a-4dd3-889a-94870bb61abb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShiftDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6fd8211-1f53-4420-897d-459383823aee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +148,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e8c4712-e3a7-490e-886d-d77c77df0b6a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e854e92-135d-4999-a429-a2c3d592102e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,6 +182,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_ShiftUp = m_Player.FindAction("ShiftUp", throwIfNotFound: true);
+        m_Player_ShiftDown = m_Player.FindAction("ShiftDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +247,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Grab;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_ShiftUp;
+    private readonly InputAction m_Player_ShiftDown;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -213,6 +257,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @ShiftUp => m_Wrapper.m_Player_ShiftUp;
+        public InputAction @ShiftDown => m_Wrapper.m_Player_ShiftDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -234,6 +280,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @ShiftUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftUp;
+                @ShiftUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftUp;
+                @ShiftUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftUp;
+                @ShiftDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftDown;
+                @ShiftDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftDown;
+                @ShiftDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -250,6 +302,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @ShiftUp.started += instance.OnShiftUp;
+                @ShiftUp.performed += instance.OnShiftUp;
+                @ShiftUp.canceled += instance.OnShiftUp;
+                @ShiftDown.started += instance.OnShiftDown;
+                @ShiftDown.performed += instance.OnShiftDown;
+                @ShiftDown.canceled += instance.OnShiftDown;
             }
         }
     }
@@ -260,5 +318,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShiftUp(InputAction.CallbackContext context);
+        void OnShiftDown(InputAction.CallbackContext context);
     }
 }

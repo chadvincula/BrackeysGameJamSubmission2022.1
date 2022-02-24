@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Grabbable
   - Interactable
+  - LeaveClosetRoom
+  - EnterClosetRoom
+  - EnterBR2
+  - EnterBR3
+  - EnterBR4
+  - LeaveBR2
+  - LeaveBR3
+  - LeaveBR4
   layers:
   - Default
   - TransparentFX
@@ -19,8 +27,8 @@ TagManager:
   - PlayerCollisionLayer
   - SmallBoxes
   - LargeBoxes
-  - EntityVision
-  - EntityCollisionLayer
+  - ShiftLayer
+  - 
   - 
   - 
   - 

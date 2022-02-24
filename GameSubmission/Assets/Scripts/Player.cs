@@ -9,27 +9,32 @@ public class Player : MonoBehaviour
 {
     //Movement variables to edit within Inspector
     [SerializeField] private float groundSpeed = 10f, jumpStrength = 5f, gravityMod = 1f;
-    
+
     //Hidden Variables tied to the player. Add more as needed.
     private float _sanity = 0f, _gravity = -9.81f;
-    private bool _isHidden = false;
+    private bool _isHidden = false, _canShift = true;
+    public string shiftAction;
 
     //References to PlayerInput and CharacterController
     private PlayerControls _playerInput;
     private CharacterController _body;
     private Vector3 _velocity;
 
+    public VisibilityScript visibilityScript;
+
     private void Awake()
     {
         _playerInput = new PlayerControls();
         _body = GetComponent<CharacterController>();
     }
-    
+
     private void OnEnable()
     {
         _playerInput.Enable();
         _playerInput.Player.Move.performed += HandleMove;
         _playerInput.Player.Jump.performed += HandleJump;
+        _playerInput.Player.ShiftUp.performed += HandleSUP;
+        _playerInput.Player.ShiftDown.performed += HandleSDN;
     }
 
     private void OnDisable()
@@ -37,6 +42,8 @@ public class Player : MonoBehaviour
         _playerInput.Disable();
         _playerInput.Player.Move.performed -= HandleMove;
         _playerInput.Player.Jump.performed -= HandleJump;
+        _playerInput.Player.ShiftUp.performed -= HandleSUP;
+        _playerInput.Player.ShiftDown.performed -= HandleSDN;
     }
 
     private void Update()
@@ -48,12 +55,12 @@ public class Player : MonoBehaviour
     {
         //Stop the player from falling once they hit the ground.
         if (_body.isGrounded && _velocity.y < 0f) _velocity.y = 0f;
-        
+
         //First we move the body according to player input.
         var inputDirection = _playerInput.Player.Move.ReadValue<float>();
         var movingVector = new Vector3(inputDirection * groundSpeed, 0f, 0f);
         _body.Move(movingVector * Time.deltaTime);
-        
+
         //Then we move the body as affected by gravity.
         _velocity.y += (_gravity * gravityMod) * Time.deltaTime;
         _body.Move(_velocity * Time.deltaTime);
@@ -70,7 +77,75 @@ public class Player : MonoBehaviour
     {
         if(_body.isGrounded) _velocity.y += jumpStrength;
     }
-    
+
+    private void HandleSUP(InputAction.CallbackContext context)
+    {
+        if (!_canShift) return;
+        switch (shiftAction)
+        {
+            case "EnterBR2":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer2();
+                break;
+            case "EnterBR3":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer3();
+                break;
+            case "EnterBR4":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer4();
+                break;
+            case "EnterClosetRoom":
+                _body.Move(new Vector3(0,0,2));
+                visibilityScript.EnterLayer2();
+                break;
+        }
+    }
+
+    private void HandleSDN(InputAction.CallbackContext context)
+    {
+        if (!_canShift) return;
+        switch (shiftAction)
+        {
+            case "LeaveBR2":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer2();
+                break;
+            case "LeaveBR3":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer3();
+                break;
+            case "LeaveBR4":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer4();
+                break;
+            case "LeaveClosetRoom":
+                _body.Move(new Vector3(0,0,-2));
+                visibilityScript.LeaveLayer2();
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnterBR2") || other.CompareTag("EnterBR3") || other.CompareTag("EnterBR4") ||
+            other.CompareTag("LeaveBR2") || other.CompareTag("LeaveBR3") || other.CompareTag("LeaveBR4") ||
+            other.CompareTag("EnterClosetRoom") || other.CompareTag("LeaveClosetRoom"))
+        {
+            _canShift = true;
+            shiftAction = other.tag;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnterBR2") || other.CompareTag("EnterBR3") || other.CompareTag("EnterBR4") ||
+            other.CompareTag("LeaveBR2") || other.CompareTag("LeaveBR3") || other.CompareTag("LeaveBR4") ||
+            other.CompareTag("EnterClosetRoom") || other.CompareTag("LeaveClosetRoom"))
+        {
+            _canShift = false;
+            shiftAction = null;
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.moveDirection.y >= -0.3f)
@@ -84,7 +159,7 @@ public class Player : MonoBehaviour
                 // forceDirection.y = 0f;
                 // forceDirection.Normalize();
 
-                
+
                 var inputDirection = _playerInput.Player.Move.ReadValue<float>();
                 float pushForce = (rb.mass <= 1f) ? inputDirection * groundSpeed : inputDirection * groundSpeed / rb.mass;
                 var movingVector = new Vector3(pushForce, 0f, 0f);
