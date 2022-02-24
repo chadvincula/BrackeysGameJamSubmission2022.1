@@ -22,27 +22,24 @@ public class ListOfTasks : MonoBehaviour
 
     }
 
-    #if UNITY_EDITOR // for devv shortcuts
-        private void OnEnable()
-        {
+    private void OnEnable()
+    {
+        InteractableTask.OnFinishedInteraction += CompleteCurrentTask;
+        #if UNITY_EDITOR // for devv shortcuts
             _playerControls.DevShortcuts.Enable();
             _playerControls.DevShortcuts.CompleteTaskOne.performed += CompleteTaskOne;
-            _playerControls.DevShortcuts.CompleteTaskTwo.performed += CompleteTaskTwo;
-            _playerControls.DevShortcuts.CompleteTaskThree.performed += CompleteTaskThree;
-            _playerControls.DevShortcuts.CompleteTaskFour.performed += CompleteTaskFour;
-            _playerControls.DevShortcuts.CompleteTaskFive.performed += CompleteTaskFive;
-        }
+        #endif
+    }
 
-        private void OnDisable()
-        {
+    private void OnDisable()
+    {
+        InteractableTask.OnFinishedInteraction -= CompleteCurrentTask;
+        #if UNITY_EDITOR // for devv shortcuts
             _playerControls.DevShortcuts.Disable();
             _playerControls.DevShortcuts.CompleteTaskOne.performed -= CompleteTaskOne;
-            _playerControls.DevShortcuts.CompleteTaskTwo.performed -= CompleteTaskTwo;
-            _playerControls.DevShortcuts.CompleteTaskThree.performed -= CompleteTaskThree;
-            _playerControls.DevShortcuts.CompleteTaskFour.performed -= CompleteTaskFour;
-            _playerControls.DevShortcuts.CompleteTaskFive.performed -= CompleteTaskFive;
-        }
-    #endif
+        #endif
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -69,12 +66,26 @@ public class ListOfTasks : MonoBehaviour
     private void SetTaskPositions()
     {
         // Set an appropriate position
-        for(int i = 0; i < myTasks.Count; i++)
+        if(myTasks.Count > 0)
         {
-            myTasks[i].anchoredPosition = new Vector2(-75 + 190 * i, -5);
+            if(!myTasks[0].gameObject.activeInHierarchy)
+            {
+                myTasks[0].gameObject.SetActive(true);
+                myTasks[0].anchoredPosition = new Vector2(-75, -5);
+            }
+            for(int i = 1; i < myTasks.Count; i++)
+            {
+                myTasks[i].gameObject.SetActive(false);
+            }
         }
     }
 
+    public void CompleteCurrentTask()
+    {if(myTasks.Count > 0 && !_isDeletingATask)
+        {
+            StartCoroutine(DeleteTask(0));
+        }
+    }
     public void CompleteTask(int index)
     {
         if(myTasks.Count > index && !_isDeletingATask)
@@ -93,15 +104,20 @@ public class ListOfTasks : MonoBehaviour
             _isDeletingATask = true;
             while(taskAnimation.isPlaying)
                 yield return null;
-            Destroy(myTasks[index].gameObject);
+            myTasks[index].gameObject.SetActive(false);
             myTasks.RemoveAt(index);
             SetTaskPositions();
             _isDeletingATask = false;
 
             if(myTasks.Count <= 0)
             {
-                if(gameObject.scene.name == "Day4" && _sanityContoller.GetSanity() < endOfDayFourThreshold)
-                    _sanityContoller.ResetToDayOne();
+                if(gameObject.scene.name == "Day4")
+                {
+                    if(_sanityContoller.GetSanity() < endOfDayFourThreshold)
+                        _sanityContoller.ResetToDayOne();
+                }
+                else
+                    _sanityContoller.ProceedToNextDay();
             }
 
         }
@@ -110,25 +126,5 @@ public class ListOfTasks : MonoBehaviour
     public void CompleteTaskOne(InputAction.CallbackContext context)
     {
         CompleteTask(0);
-    }
-
-    public void CompleteTaskTwo(InputAction.CallbackContext context)
-    {
-        CompleteTask(1);
-    }
-
-    public void CompleteTaskThree(InputAction.CallbackContext context)
-    {
-        CompleteTask(2);
-    }
-
-    public void CompleteTaskFour(InputAction.CallbackContext context)
-    {
-        CompleteTask(3);
-    }
-
-    public void CompleteTaskFive(InputAction.CallbackContext context)
-    {
-        CompleteTask(4);
     }
 }

@@ -54,4 +54,21 @@ public class SanityContoller : MonoBehaviour
     {
         SceneManager.LoadScene("Day1");
     }
+
+    public void ProceedToNextDay()
+    {
+        switch(gameObject.scene.name)
+        {
+            case "Day1":
+            case "CharlesTestScene":
+                SceneManager.LoadScene("Day2");
+                break;
+            case "Day2":
+                SceneManager.LoadScene("Day3");
+                break;
+            case "Day3":
+                SceneManager.LoadScene("Day4");
+                break;
+        }
+    }
 }
