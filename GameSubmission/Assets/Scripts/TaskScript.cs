@@ -18,15 +18,25 @@ public class TaskScript : MonoBehaviour
         
     }
 
-    public bool Finish(SanityContoller sanityContoller)
+    public bool CanPerformTask(SanityContoller sanityContoller)
     {
         Debug.Log(sanityContoller.GetSanity() + sanityCost);
-        if(sanityContoller.GetSanity() + sanityCost >= 0f)
+        return sanityContoller.GetSanity() + sanityCost >= 0f;
+    }
+
+    public void DisplayInsufficientStaminaMessage()
+    {
+        shortStaminaTextbox.SetActive(true);
+        StartCoroutine(DisableAlert(3f));
+    }
+
+    public bool Finish(SanityContoller sanityContoller)
+    {
+        if(CanPerformTask(sanityContoller))
             sanityContoller.SetSanity(sanityCost);
         else
         {
-            shortStaminaTextbox.SetActive(true);
-            StartCoroutine(DisableAlert(3f));
+            DisplayInsufficientStaminaMessage();
         }
         return !shortStaminaTextbox.activeInHierarchy;
     }
