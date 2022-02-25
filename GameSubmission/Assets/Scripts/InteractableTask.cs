@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractableTask : InteractScript
 {
     [SerializeField] private TaskScript myTask = null;
+    [SerializeField] private InteractScript reward = null;
     private SanityContoller _sanityContoller = null;
     public GameObject completedMessage = null;
     public static event InteractionFinished OnFinishedInteraction;
@@ -42,5 +43,12 @@ public class InteractableTask : InteractScript
             }
         }
         base.PerformInteraction();
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if(myTask.gameObject.activeInHierarchy && reward != null)
+            reward.enabled = true;
+        base.OnTriggerEnter(other);
     }
 }
