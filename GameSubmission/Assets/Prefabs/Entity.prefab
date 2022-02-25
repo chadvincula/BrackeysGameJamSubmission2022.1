@@ -168,6 +168,7 @@ MonoBehaviour:
   respawnPoints:
   - {x: -15.3, y: 3.04, z: 0}
   - {x: 8.91, y: 8.7, z: 0}
+  sanityDamage: -0.3
 --- !u!95 &671568929761413778
 Animator:
   serializedVersion: 3

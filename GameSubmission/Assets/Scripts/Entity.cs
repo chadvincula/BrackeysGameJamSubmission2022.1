@@ -21,7 +21,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _moveDirection = (transform.rotation.y == 0) ? 1f : -1f;
+        _moveDirection = (transform.rotation.y == 0) ? 1f : -1f; 
     }
 
     // Update is called once per frame
