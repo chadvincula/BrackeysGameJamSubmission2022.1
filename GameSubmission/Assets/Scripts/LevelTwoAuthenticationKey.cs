@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class LevelTwoAuthenticationKey : InteractScript
 {
+    protected override void Awake()
+    {
+        base.Awake();
+        this.enabled = false;
+    }
     protected override void HandleInteract(InputAction.CallbackContext context)
     {
         base.HandleInteract(context);
@@ -12,11 +17,19 @@ public class LevelTwoAuthenticationKey : InteractScript
             Progression._hasLevel2Key = true;
     }
 
+    protected override void PerformInteraction()
+    {
+        InteractableTask possibleTask = GetComponent<InteractableTask>();
+        if(possibleTask == null)
+            base.PerformInteraction();
+    }
+
     protected override void OnTriggerExit(Collider other)
     {
         _canInteract = false;
         _isInteracting = false;
-        StartCoroutine(DelayedInactiveTextbox(3f));
+        if(currentTextbox != null && currentTextbox.activeInHierarchy)
+            StartCoroutine(DelayedInactiveTextbox(3f));
 
     }
 

@@ -321,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1428842673}
   myTask: {fileID: 2033625082}
+  reward: {fileID: 0}
   completedMessage: {fileID: 2065900537}
 --- !u!136 &49720227
 CapsuleCollider:
@@ -817,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1428842673}
   myTask: {fileID: 1894829036}
+  reward: {fileID: 112313636}
   completedMessage: {fileID: 501727796}
 --- !u!136 &112313634
 CapsuleCollider:
@@ -890,12 +892,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112313631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a723b51cdd31be4881330baf344e186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 501727796}
+  textBox: {fileID: 1428842673}
 --- !u!1 &136932723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1428842673}
   myTask: {fileID: 818102037}
+  reward: {fileID: 0}
   completedMessage: {fileID: 76713253}
 --- !u!136 &398862356
 CapsuleCollider:
@@ -3947,6 +3950,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282952934}
     m_Modifications:
+    - target: {fileID: 5813991715102155548, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5813991715954331809, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5009,6 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1428842673}
   myTask: {fileID: 1545949917}
+  reward: {fileID: 0}
   completedMessage: {fileID: 226947799}
 --- !u!136 &1337807843
 CapsuleCollider:
@@ -5663,6 +5671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1428842673}
   myTask: {fileID: 91212572}
+  reward: {fileID: 0}
   completedMessage: {fileID: 1542286472}
 --- !u!136 &1535899165
 CapsuleCollider:
