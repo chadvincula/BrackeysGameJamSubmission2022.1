@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private PlayerControls _playerInput;
     private CharacterController _body;
     private Vector3 _velocity;
+    private Animator _animator;
 
     public VisibilityScript visibilityScript;
     public SpriteRenderer[] buttonIcons;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     {
         _playerInput = new PlayerControls();
         _body = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -62,6 +64,8 @@ public class Player : MonoBehaviour
         var inputDirection = _playerInput.Player.Move.ReadValue<float>();
         var movingVector = new Vector3(inputDirection * groundSpeed, 0f, 0f);
         _body.Move(movingVector * Time.deltaTime);
+        if(movingVector.magnitude != 0) _animator.SetBool("walking", true);
+        else _animator.SetBool("walking", false);
 
         //Then we move the body as affected by gravity.
         _velocity.y += (_gravity * gravityMod) * Time.deltaTime;
@@ -208,6 +212,7 @@ public class Player : MonoBehaviour
     public void SetGrabbing(bool status)
     {
         _isGrabbing = status;
+        _animator.SetBool("carrying", _isGrabbing);
     }
 
     public bool GetHidden()
