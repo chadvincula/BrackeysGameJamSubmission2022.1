@@ -30,23 +30,7 @@ public class SanityContoller : MonoBehaviour
     {
         sanity += amount;
         _sanityFill.fillAmount = sanity;
-        if (sanity >= 1)
-        {
-            switch (SceneManager.GetActiveScene().name)
-            {
-                case "TheBackrooms":
-                    SceneManager.LoadScene("TheBackrooms");
-                    break;
-                default:
-                    SceneManager.LoadScene("Day1");
-                    break;
-            }
-        }
-        else if (sanity <= 0)
-        {
-            if (SceneManager.GetActiveScene().name == "TheBackrooms")
-                SceneManager.LoadScene("TheBackrooms");
-        }
+        if (sanity >= 1) ResetToDayOne();
     }
 
     public void SaveSanityToProgress()
@@ -60,12 +44,7 @@ public class SanityContoller : MonoBehaviour
         if (_timer > drainInterval && sanity > 0)
         {
             sanity -= drainAmount;
-            if (sanity < 0)
-            {
-                sanity = 0;
-                if (SceneManager.GetActiveScene().name == "TheBackrooms")
-                    SceneManager.LoadScene("TheBackrooms");
-            }
+            if (sanity < 0) sanity = 0;
             _sanityFill.fillAmount = sanity;
             _timer = 0;
         }
