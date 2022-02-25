@@ -11845,8 +11845,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good thing the documents are untouched. Loks like I need to follow up on
-    this client.
+  m_text: Good thing the documents are untouched. Looks like I need to follow up
+    on this client.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
   m_sharedMaterial: {fileID: 8008263897082838438, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
