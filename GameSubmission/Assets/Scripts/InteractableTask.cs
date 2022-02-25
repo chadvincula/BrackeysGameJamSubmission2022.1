@@ -62,5 +62,7 @@ public class InteractableTask : InteractScript
         base.interactableIcon.SetActive(false);
         if(completedMessage.activeInHierarchy)
             completedMessage.SetActive(false);
+        if(reward != null && reward.enabled)
+            this.enabled = false;
     }
 }
