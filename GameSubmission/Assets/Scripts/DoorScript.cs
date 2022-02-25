@@ -8,7 +8,15 @@ public class DoorScript : InteractScript
 {
     protected override void HandleInteract(InputAction.CallbackContext context)
     {
-        if (base._canInteract) SceneManager.LoadScene("Day1");
+        if (base._canInteract)
+        {
+            if(Progression._hasLevel3Key)
+                SceneManager.LoadScene("Closet");
+            else if(Progression._hasLevel2Key)
+                SceneManager.LoadScene("TheBackrooms");
+            else
+                SceneManager.LoadScene("Day1");
+        }
     }
 
     protected override void OnTriggerEnter(Collider other)
