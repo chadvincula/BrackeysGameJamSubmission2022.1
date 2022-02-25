@@ -36,7 +36,7 @@ public class GrabAndDropTask : MonoBehaviour
         {
             if(transform.parent.parent == null)
             {
-                if(myTask.gameObject.activeInHierarchy)
+                if(myTask != null && myTask.gameObject.activeInHierarchy)
                 {
                     if(!completedMessage.activeInHierarchy && !myTask.CanPerformTask(_sanityContoller))
                     {
