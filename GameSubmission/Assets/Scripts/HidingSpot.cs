@@ -81,13 +81,13 @@ public class HidingSpot : InteractScript
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player))
+        if(other.transform.parent.TryGetComponent(out Player player))
             base.OnTriggerEnter(other);
     }
 
     protected override void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent(out Player player))
+        if(other.transform.parent.TryGetComponent(out Player player))
             base.OnTriggerExit(other);
     }
 }
