@@ -45,7 +45,7 @@ public class InteractScript : MonoBehaviour
 
     protected virtual void PerformInteraction()
     {
-        Debug.Log("Performing Interaction...");
+        Debug.Log("Performing Interaction from " + gameObject.name);
         currentTextbox.SetActive(true);
     }
 

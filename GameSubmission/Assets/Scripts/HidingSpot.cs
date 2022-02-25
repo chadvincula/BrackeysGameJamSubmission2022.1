@@ -78,4 +78,16 @@ public class HidingSpot : InteractScript
         Physics.IgnoreLayerCollision(9, 12, false);
         Physics.IgnoreLayerCollision(9, 13, false);
     }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.parent.TryGetComponent(out Player player))
+            base.OnTriggerEnter(other);
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        if(other.transform.parent.TryGetComponent(out Player player))
+            base.OnTriggerExit(other);
+    }
 }

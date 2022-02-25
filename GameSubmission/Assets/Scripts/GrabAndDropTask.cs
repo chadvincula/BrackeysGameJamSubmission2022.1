@@ -9,6 +9,7 @@ public class GrabAndDropTask : MonoBehaviour
     private bool _isInsideDestination = false;
     private SanityContoller _sanityContoller = null;
     public GameObject completedMessage = null;
+    [SerializeField] private float completedMessageDuration = 6f;
     public static event DeliveredGoods OnDeliveredGoods;
     public delegate void DeliveredGoods();
 
@@ -33,18 +34,27 @@ public class GrabAndDropTask : MonoBehaviour
     {
         if(other.gameObject.tag == roomTag)
         {
-            Debug.Log(myTask.gameObject.activeInHierarchy);
-            if(transform.parent.parent == null && myTask.gameObject.activeInHierarchy)
+            if(transform.parent.parent == null)
             {
-                if(!myTask.CanPerformTask(_sanityContoller))
+                if(myTask != null && myTask.gameObject.activeInHierarchy)
                 {
-                    myTask.DisplayInsufficientStaminaMessage();
-                    return;
+                    if(!completedMessage.activeInHierarchy && !myTask.CanPerformTask(_sanityContoller))
+                    {
+                        myTask.DisplayInsufficientStaminaMessage(completedMessageDuration);
+                        return;
+                    }
+                    else
+                    {
+                        completedMessage.SetActive(true);
+                        OnDeliveredGoods?.Invoke();
+                    }
                 }
                 else
                 {
-                    completedMessage.SetActive(true);
-                    OnDeliveredGoods?.Invoke();
+                    if(completedMessage.activeInHierarchy)
+                    {
+                        completedMessage.SetActive(false);
+                    }
                 }
             }
         }

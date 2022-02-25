@@ -31,7 +31,7 @@ public class InteractableTask : InteractScript
     {
         if(!textBox.activeInHierarchy && !completedMessage.activeInHierarchy)
         {
-            if(myTask.gameObject.activeInHierarchy)
+            if(myTask != null && myTask.gameObject.activeInHierarchy)
             {
                 if(!myTask.CanPerformTask(_sanityContoller))
                 {
@@ -50,7 +50,7 @@ public class InteractableTask : InteractScript
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(myTask.gameObject.activeInHierarchy && reward != null)
+        if(myTask != null && myTask.gameObject.activeInHierarchy && reward != null)
             reward.enabled = true;
         base.OnTriggerEnter(other);
         base.interactableIcon.SetActive(true);
@@ -62,5 +62,7 @@ public class InteractableTask : InteractScript
         base.interactableIcon.SetActive(false);
         if(completedMessage.activeInHierarchy)
             completedMessage.SetActive(false);
+        if(reward != null && reward.enabled)
+            this.enabled = false;
     }
 }
