@@ -55,6 +55,11 @@ public class SanityContoller : MonoBehaviour
         SceneManager.LoadScene("Day1");
     }
 
+    public void GoToBackrooms()
+    {
+        SceneManager.LoadScene("TheBackrooms");
+    }
+
     public void ProceedToNextDay()
     {
         switch(gameObject.scene.name)

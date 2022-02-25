@@ -117,6 +117,8 @@ public class ListOfTasks : MonoBehaviour
                 {
                     if(_sanityContoller.GetSanity() < endOfDayFourThreshold)
                         _sanityContoller.ResetToDayOne();
+                    else
+                        _sanityContoller.GoToBackrooms();
                 }
                 else
                     _sanityContoller.ProceedToNextDay();
