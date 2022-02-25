@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
 
     //Hidden Variables tied to the player. Add more as needed.
     private float _sanity = 0f, _gravity = -9.81f;
-    private bool _isHidden = false, _canShift = true;
+    private bool _isHidden = false, _canShift = true, _isGrabbing = false;
     public string shiftAction;
 
     //References to PlayerInput and CharacterController
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     private Vector3 _velocity;
 
     public VisibilityScript visibilityScript;
+    public SpriteRenderer[] buttonIcons;
 
     private void Awake()
     {
@@ -69,8 +71,22 @@ public class Player : MonoBehaviour
     //All this does is just flip the player sprite to the left or right.
     private void HandleMove(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() < 0) transform.rotation = Quaternion.Euler(0, 180, 0); //Moving Left.
-        else if (context.ReadValue<float>() > 0) transform.rotation = Quaternion.Euler(0, 0, 0); //Moving Right.
+        if (context.ReadValue<float>() < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            foreach (var icon in buttonIcons)
+            {
+                icon.flipX = true;
+            }
+        }
+        else if (context.ReadValue<float>() > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            foreach (var icon in buttonIcons)
+            {
+                icon.flipX = false;
+            }
+        }
     }
 
     private void HandleJump(InputAction.CallbackContext context)
@@ -182,5 +198,25 @@ public class Player : MonoBehaviour
             _playerInput.Player.Move.Disable();
             _playerInput.Player.Jump.Disable();
         }
+    }
+
+    public bool GetGrabbing()
+    {
+        return _isGrabbing;
+    }
+
+    public void SetGrabbing(bool status)
+    {
+        _isGrabbing = status;
+    }
+
+    public bool GetHidden()
+    {
+        return _isHidden;
+    }
+
+    public void SetHidden(bool status)
+    {
+        _isHidden = status;
     }
 }

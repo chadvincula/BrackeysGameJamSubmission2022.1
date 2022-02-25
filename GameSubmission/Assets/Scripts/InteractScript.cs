@@ -12,6 +12,7 @@ public class InteractScript : MonoBehaviour
     protected GameObject currentTextbox = null;
 
     public GameObject textBox;
+    public GameObject interactableIcon;
 
     protected virtual void Awake()
     {
@@ -35,7 +36,7 @@ public class InteractScript : MonoBehaviour
     protected virtual void HandleInteract(InputAction.CallbackContext context)
     {
         if (!_canInteract) return;
-        // textBox.SetActive(true);
+        //textBox.SetActive(true);
         currentTextbox = textBox;
         _isInteracting = true;
         Debug.Log("You've reached a checkpoint!");

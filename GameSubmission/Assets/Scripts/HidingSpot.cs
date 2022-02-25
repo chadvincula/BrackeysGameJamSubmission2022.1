@@ -21,6 +21,7 @@ public class HidingSpot : InteractScript
 
     protected override void PerformInteraction()
     {
+        if (_player.GetGrabbing()) return;
         if(!_playerInHiding)
         {
             Debug.Log("Hiding...");
@@ -35,6 +36,13 @@ public class HidingSpot : InteractScript
 
     private void HidePlayer()
     {
+        _player.SetHidden(true);
+
+        foreach (var button in _player.buttonIcons)
+        {
+            button.enabled = false;
+        }
+        
         _playerInHiding = true;
         if(isMobile)
         {
@@ -53,6 +61,13 @@ public class HidingSpot : InteractScript
 
     private void UnHidePlayer()
     {
+        _player.SetHidden(false);
+        
+        foreach (var button in _player.buttonIcons)
+        {
+            button.enabled = true;
+        }
+        
         _playerInHiding = false;
         if(isMobile)
             transform.parent = null;

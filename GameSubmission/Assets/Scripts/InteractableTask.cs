@@ -43,4 +43,16 @@ public class InteractableTask : InteractScript
         }
         base.PerformInteraction();
     }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        base.interactableIcon.SetActive(true);
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+        base.interactableIcon.SetActive(false);
+    }
 }
