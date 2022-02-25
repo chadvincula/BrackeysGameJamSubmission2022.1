@@ -1438,6 +1438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 671568929761413770, guid: 3882b0556d9185c4daad2d08ef661270, type: 3}
+      propertyPath: m_TagString
+      value: Entity
+      objectReference: {fileID: 0}
     - target: {fileID: 671568929761413775, guid: 3882b0556d9185c4daad2d08ef661270, type: 3}
       propertyPath: m_RootOrder
       value: 6

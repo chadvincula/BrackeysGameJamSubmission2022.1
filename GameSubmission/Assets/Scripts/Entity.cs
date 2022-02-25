@@ -11,12 +11,16 @@ public class Entity : MonoBehaviour
     private SpriteRenderer _spriteRenderer = null;
     private CharacterController _body = null;
     private PlayerDetection _playerSensor = null;
+    private SanityContoller _sanityContoller;
+
+    public float sanityDamage = -0.1f;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _body = GetComponent<CharacterController>();
         _playerSensor = GetComponentInChildren<PlayerDetection>();
+        _sanityContoller = FindObjectOfType<SanityContoller>();
     }
     // Start is called before the first frame update
     void Start()
@@ -129,6 +133,7 @@ public class Entity : MonoBehaviour
         if(other.gameObject.TryGetComponent(out Player player))
         {
             HitPlayer();
+            _sanityContoller.SetSanity(sanityDamage);
         }
         else
         {
