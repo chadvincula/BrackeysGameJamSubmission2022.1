@@ -62,8 +62,7 @@ public class InteractScript : MonoBehaviour
     {
         _canInteract = false;
         _isInteracting = false;
-        // textBox.SetActive(false);
-        if(currentTextbox != null)
-            currentTextbox.SetActive(false);
+        if(textBox.activeInHierarchy)
+            textBox.SetActive(false);
     }
 }
