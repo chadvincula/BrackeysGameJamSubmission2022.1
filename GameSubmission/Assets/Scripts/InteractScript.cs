@@ -16,7 +16,7 @@ public class InteractScript : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _player = GetComponentInParent<Player>();
+        _player = FindObjectOfType<Player>();
         _playerControls = new PlayerControls();
     }
 
@@ -53,8 +53,8 @@ public class InteractScript : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         _canInteract = true;
-        if(other.gameObject.GetComponentInParent<Player>() != null)
-            _player = other.gameObject.GetComponentInParent<Player>();
+        // if(other.gameObject.GetComponent<Player>() != null)
+        //     _player = other.gameObject.GetComponent<Player>();
     }
 
     //Makes sure the player doesn't interact with something out of range.

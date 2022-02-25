@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractableTask : InteractScript
 {
     [SerializeField] private TaskScript myTask = null;
+    [SerializeField] private InteractScript reward = null;
     private SanityContoller _sanityContoller = null;
     public GameObject completedMessage = null;
     public static event InteractionFinished OnFinishedInteraction;
@@ -28,24 +29,29 @@ public class InteractableTask : InteractScript
 
     protected override void PerformInteraction()
     {
-        if(myTask.gameObject.activeInHierarchy)
+        if(!textBox.activeInHierarchy && !completedMessage.activeInHierarchy)
         {
-            if(!myTask.CanPerformTask(_sanityContoller))
+            if(myTask.gameObject.activeInHierarchy)
             {
-                myTask.DisplayInsufficientStaminaMessage();
-                return;
+                if(!myTask.CanPerformTask(_sanityContoller))
+                {
+                    myTask.DisplayInsufficientStaminaMessage();
+                    return;
+                }
+                else
+                {
+                    currentTextbox = completedMessage;
+                    OnFinishedInteraction?.Invoke();
+                }
             }
-            else
-            {
-                currentTextbox = completedMessage;
-                OnFinishedInteraction?.Invoke();
-            }
+            base.PerformInteraction();
         }
-        base.PerformInteraction();
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if(myTask.gameObject.activeInHierarchy && reward != null)
+            reward.enabled = true;
         base.OnTriggerEnter(other);
         base.interactableIcon.SetActive(true);
     }
@@ -54,5 +60,7 @@ public class InteractableTask : InteractScript
     {
         base.OnTriggerExit(other);
         base.interactableIcon.SetActive(false);
+        if(completedMessage.activeInHierarchy)
+            completedMessage.SetActive(false);
     }
 }

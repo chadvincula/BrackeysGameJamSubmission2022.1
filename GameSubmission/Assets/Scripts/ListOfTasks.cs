@@ -25,6 +25,7 @@ public class ListOfTasks : MonoBehaviour
     private void OnEnable()
     {
         InteractableTask.OnFinishedInteraction += CompleteCurrentTask;
+        GrabAndDropTask.OnDeliveredGoods += CompleteCurrentTask;
         #if UNITY_EDITOR // for devv shortcuts
             _playerControls.DevShortcuts.Enable();
             _playerControls.DevShortcuts.CompleteTaskOne.performed += CompleteTaskOne;
@@ -34,6 +35,7 @@ public class ListOfTasks : MonoBehaviour
     private void OnDisable()
     {
         InteractableTask.OnFinishedInteraction -= CompleteCurrentTask;
+        GrabAndDropTask.OnDeliveredGoods -= CompleteCurrentTask;
         #if UNITY_EDITOR // for devv shortcuts
             _playerControls.DevShortcuts.Disable();
             _playerControls.DevShortcuts.CompleteTaskOne.performed -= CompleteTaskOne;
