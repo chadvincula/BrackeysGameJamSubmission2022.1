@@ -29,8 +29,43 @@ public class SanityContoller : MonoBehaviour
     public void SetSanity(float amount)
     {
         sanity += amount;
+        if (sanity < 0) sanity = 0;
         _sanityFill.fillAmount = sanity;
-        if (sanity >= 1) ResetToDayOne();
+        if (sanity >= 1)
+        {
+            if (SceneManager.GetActiveScene().name == "TheBackrooms")
+                MaxSanityBR();
+            else
+                ResetToDayOne();
+        }
+        
+        //Insert code to warn of low sanity.
+
+        if (sanity <= 0)
+        {
+            if (SceneManager.GetActiveScene().name == "TheBackrooms")
+                MinSanityBR();
+            else
+                MinSanityOffice();
+        }
+    }
+    
+    //This could use a coroutine inside to make things dramatic. Polish.
+    private void MaxSanityBR()
+    {
+        SceneManager.LoadScene("TheBackrooms");
+    }
+    
+    //This should be different by being a GAMEOVER?
+    private void MinSanityBR()
+    {
+        SceneManager.LoadScene("TheBackrooms");
+    }
+    
+    //This could trigger the vignette + textBox;
+    private void MinSanityOffice()
+    {
+        //Trigger vignette
     }
 
     public void SaveSanityToProgress()
@@ -43,9 +78,10 @@ public class SanityContoller : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > drainInterval && sanity > 0)
         {
-            sanity -= drainAmount;
+            /*sanity -= drainAmount;
             if (sanity < 0) sanity = 0;
-            _sanityFill.fillAmount = sanity;
+            _sanityFill.fillAmount = sanity;*/
+            SetSanity(-drainAmount);
             _timer = 0;
         }
     }

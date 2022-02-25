@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 671568929761413773}
   - component: {fileID: 671568929761413771}
   - component: {fileID: 671568929761413778}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Entity
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 671568930782517773}
   - component: {fileID: 671568930782517772}
   - component: {fileID: 671568930782517778}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: DetectionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
