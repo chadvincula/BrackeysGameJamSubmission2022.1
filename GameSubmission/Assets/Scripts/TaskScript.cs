@@ -30,6 +30,12 @@ public class TaskScript : MonoBehaviour
         StartCoroutine(DisableAlert(3f));
     }
 
+    public void DisplayInsufficientStaminaMessage(float seconds)
+    {
+        shortStaminaTextbox.SetActive(true);
+        StartCoroutine(DisableAlert(seconds));
+    }
+
     public bool Finish(SanityContoller sanityContoller)
     {
         if(CanPerformTask(sanityContoller))
