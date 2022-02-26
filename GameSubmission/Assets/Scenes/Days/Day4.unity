@@ -1663,6 +1663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1477166607}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 644942922}
   reward: {fileID: 0}
   completedMessage: {fileID: 2009258055}
@@ -3053,6 +3054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28141c05301d5134c8b0f5c07b245ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 0}
   roomTag: BossOffice
   completedMessage: {fileID: 800774228}
@@ -5893,6 +5895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1477166607}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 847971385}
   reward: {fileID: 1134268770}
   completedMessage: {fileID: 639218898}
@@ -5910,6 +5913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 639218898}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 85688269}
   reward: {fileID: 0}
   completedMessage: {fileID: 800774228}
@@ -6076,8 +6080,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good job. One more thing. Can you get some supplies from the janitorial
-    closet? Here's a level 2 authentication key. You could get in with this.
+  m_text: Good job. Before you go, can you bring supplies from the janitorial closet
+    in the far-end of the building? Here's a level 2 authentication key. This'll
+    get you in.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
   m_sharedMaterial: {fileID: 8008263897082838438, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
@@ -6804,6 +6809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1435793824}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 0}
   reward: {fileID: 0}
   completedMessage: {fileID: 800774228}
@@ -6882,6 +6888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1609427383}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 619220375}
   reward: {fileID: 0}
   completedMessage: {fileID: 103575311}
@@ -7980,7 +7987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401464363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8122,6 +8129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 256380898}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 1183428972}
   reward: {fileID: 0}
   completedMessage: {fileID: 1854669252}
@@ -8570,6 +8578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1085281059}
   interactableIcon: {fileID: 1396070763}
+  _sanityContoller: {fileID: 1062459300}
   myTask: {fileID: 1247312838}
   reward: {fileID: 1505703989}
   completedMessage: {fileID: 787339231}
@@ -10369,7 +10378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874087966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 574819593}
@@ -10968,7 +10977,7 @@ GameObject:
   - component: {fileID: 1973248644}
   - component: {fileID: 1973248646}
   - component: {fileID: 1973248645}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Office_BasicWall
   m_TagString: LeaveClosetRoom
   m_Icon: {fileID: 0}

@@ -1141,7 +1141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173017714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1697812234}
@@ -1866,6 +1866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 697362398}
   interactableIcon: {fileID: 604892327}
+  _sanityContoller: {fileID: 1741847302}
   myTask: {fileID: 479129557}
   reward: {fileID: 0}
   completedMessage: {fileID: 2006769522}
@@ -3205,6 +3206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 857971755}
   interactableIcon: {fileID: 604892327}
+  _sanityContoller: {fileID: 1741847302}
   myTask: {fileID: 129068328}
   reward: {fileID: 0}
   completedMessage: {fileID: 1211269177}
@@ -4496,6 +4498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1087796525}
   interactableIcon: {fileID: 604892327}
+  _sanityContoller: {fileID: 1741847302}
   myTask: {fileID: 593258696}
   reward: {fileID: 0}
   completedMessage: {fileID: 1505608116}
@@ -5674,6 +5677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 2080601230}
   interactableIcon: {fileID: 604892327}
+  _sanityContoller: {fileID: 1741847302}
   myTask: {fileID: 0}
   reward: {fileID: 0}
   completedMessage: {fileID: 2138935516}
@@ -6202,7 +6206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340523301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8092,7 +8096,7 @@ GameObject:
   - component: {fileID: 1769902755}
   - component: {fileID: 1769902757}
   - component: {fileID: 1769902756}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Office_BasicWall
   m_TagString: LeaveClosetRoom
   m_Icon: {fileID: 0}
@@ -9001,6 +9005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 317595006}
   interactableIcon: {fileID: 604892327}
+  _sanityContoller: {fileID: 1741847302}
   myTask: {fileID: 256145902}
   reward: {fileID: 0}
   completedMessage: {fileID: 739470868}

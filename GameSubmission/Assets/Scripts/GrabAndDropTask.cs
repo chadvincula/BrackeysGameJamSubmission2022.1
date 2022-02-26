@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class GrabAndDropTask : MonoBehaviour
 {
+    [SerializeField] private SanityContoller _sanityContoller = null;
     [SerializeField] private TaskScript myTask = null;
     [SerializeField] private string roomTag = "";
     private bool _isInsideDestination = false;
-    private SanityContoller _sanityContoller = null;
     public GameObject completedMessage = null;
     [SerializeField] private float completedMessageDuration = 6f;
     public static event DeliveredGoods OnDeliveredGoods;
     public delegate void DeliveredGoods();
-
-    private void Awake()
-    {
-        _sanityContoller = FindObjectOfType<SanityContoller>();
-    }
 
     // Start is called before the first frame update
     void Start()

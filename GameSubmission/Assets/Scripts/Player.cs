@@ -154,6 +154,18 @@ public class Player : MonoBehaviour
         {
             _canShift = true;
             shiftAction = other.tag;
+            SpriteRenderer shiftUpButton = buttonIcons[2];
+            SpriteRenderer shiftDownButton = buttonIcons[3];
+            if(other.tag.Contains("Enter"))
+            {
+                shiftUpButton.gameObject.SetActive(_canShift);
+                shiftDownButton.gameObject.SetActive(!_canShift);
+            }
+            else if(other.tag.Contains("Leave"))
+            {
+                shiftDownButton.gameObject.SetActive(_canShift);
+                shiftUpButton.gameObject.SetActive(!_canShift);
+            }
         }
     }
 
@@ -165,6 +177,10 @@ public class Player : MonoBehaviour
         {
             _canShift = false;
             shiftAction = null;
+            SpriteRenderer shiftUpButton = buttonIcons[2];
+            SpriteRenderer shiftDownButton = buttonIcons[3];
+            shiftUpButton.gameObject.SetActive(_canShift);
+            shiftDownButton.gameObject.SetActive(_canShift);
         }
     }
 

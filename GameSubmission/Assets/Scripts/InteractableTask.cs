@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class InteractableTask : InteractScript
 {
+    [SerializeField] private SanityContoller _sanityContoller = null;
     [SerializeField] private TaskScript myTask = null;
     [SerializeField] private InteractScript reward = null;
-    private SanityContoller _sanityContoller = null;
     public GameObject completedMessage = null;
     public static event InteractionFinished OnFinishedInteraction;
     public delegate void InteractionFinished();
-    protected override void Awake()
-    {
-        base.Awake();
-        _sanityContoller = FindObjectOfType<SanityContoller>();
-    }
     // Start is called before the first frame update
     void Start()
     {

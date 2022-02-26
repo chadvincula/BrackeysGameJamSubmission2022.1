@@ -1841,7 +1841,7 @@ GameObject:
   - component: {fileID: 386080461}
   - component: {fileID: 386080463}
   - component: {fileID: 386080462}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Office_BasicWall
   m_TagString: LeaveClosetRoom
   m_Icon: {fileID: 0}
@@ -2009,6 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28141c05301d5134c8b0f5c07b245ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 972411807}
   roomTag: BossOffice
   completedMessage: {fileID: 9696743}
@@ -7130,6 +7131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 48363898}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 972411807}
   reward: {fileID: 0}
   completedMessage: {fileID: 1835483677}
@@ -7287,6 +7289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 771310513}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 583151232}
   reward: {fileID: 0}
   completedMessage: {fileID: 406965460}
@@ -7858,7 +7861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431046516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1060635277}
@@ -7924,6 +7927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 79971505}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 666967825}
   reward: {fileID: 0}
   completedMessage: {fileID: 613714355}
@@ -8392,7 +8396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510358993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9594,6 +9598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1488173516}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 2080014783}
   reward: {fileID: 0}
   completedMessage: {fileID: 1662699594}
@@ -11691,6 +11696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1122377071}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 1046214148}
   reward: {fileID: 2112682107}
   completedMessage: {fileID: 1835483677}
@@ -11708,6 +11714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1835483677}
   interactableIcon: {fileID: 1416233578}
+  _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 791554903}
   reward: {fileID: 0}
   completedMessage: {fileID: 145348206}
