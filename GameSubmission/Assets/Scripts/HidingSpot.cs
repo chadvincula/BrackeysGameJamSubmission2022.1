@@ -55,8 +55,8 @@ public class HidingSpot : InteractScript
             _player.enabled = false;
         SpriteRenderer spriteRenderer = _player.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
-        Physics.IgnoreLayerCollision(9, 14, true); //Player x EntityVision
-        Physics.IgnoreLayerCollision(9, 15, true); //Player x EntityBody
+        Physics.IgnoreLayerCollision(9, 16, true); //Player x EntityVision
+        Physics.IgnoreLayerCollision(9, 17, true); //Player x EntityBody
     }
 
     private void UnHidePlayer()
@@ -75,8 +75,8 @@ public class HidingSpot : InteractScript
             _player.enabled = true;
         SpriteRenderer spriteRenderer = _player.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
-        Physics.IgnoreLayerCollision(9, 14, false);
-        Physics.IgnoreLayerCollision(9, 15, false);
+        Physics.IgnoreLayerCollision(9, 16, false);
+        Physics.IgnoreLayerCollision(9, 17, false);
     }
 
     protected override void OnTriggerEnter(Collider other)
