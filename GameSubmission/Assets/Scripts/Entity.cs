@@ -108,9 +108,9 @@ public class Entity : MonoBehaviour
         int randomIndex = Mathf.FloorToInt(randomNum);
         Debug.Log("Random index: " + randomIndex);
         _body.enabled = false; //Disable to allow warping
-        transform.position = respawnPoints[randomIndex];
+        transform.localPosition = respawnPoints[randomIndex];
         _body.enabled = true;
-        Debug.Log("Respawn Position: " + respawnPoints[randomIndex] + "\nTransform: " + transform.position);
+        Debug.Log("Respawn Position: " + respawnPoints[randomIndex] + "\nTransform: " + transform.localPosition);
         StartCoroutine(Wait(1f));
     }
 

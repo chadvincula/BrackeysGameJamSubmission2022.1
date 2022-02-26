@@ -18,6 +18,7 @@ TagManager:
   - CopyRoom
   - CallCenter
   - BossOffice
+  - Entity
   layers:
   - Default
   - TransparentFX
@@ -35,6 +36,8 @@ TagManager:
   - DeliveryLayer
   - PostProcessing
   - 
+  - EntityCollisionLayer
+  - EntityVisionLayer
   - 
   - 
   - 
