@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +14,18 @@ public class SanityContoller : MonoBehaviour
     private float _timer = 0, sanity = 0.2f;
     private Image _sanityFill;
     private Progression _progression;
+    private PostProcessVolume _ppv;
+    
+    private CinemachineBasicMultiChannelPerlin _perlin;
+
+    private Vignette _vignette;
+
+    private void Awake()
+    {
+        _ppv = FindObjectOfType<PostProcessVolume>();
+        _ppv.profile.TryGetSettings(out _vignette);
+        _perlin = FindObjectOfType<CinemachineBasicMultiChannelPerlin>();
+    }
 
     private void Start()
     {
@@ -38,8 +52,22 @@ public class SanityContoller : MonoBehaviour
             else
                 ResetToDayOne();
         }
-        
-        //Insert code to warn of low sanity.
+
+        if (sanity < 0.4)
+        {
+            _vignette.intensity.value = 0.5f;
+            _vignette.color.value = Color.black;
+        }
+        else if (sanity > 0.8)
+        {
+            _vignette.intensity.value = 0.5f;
+            _vignette.color.value = Color.white;
+            _perlin.m_AmplitudeGain = 0.5f;
+        }
+        else
+        {
+            _perlin.m_AmplitudeGain = 0;
+        }
 
         if (sanity <= 0)
         {
