@@ -4485,6 +4485,10 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 256380898}
+    - target: {fileID: 5813991715954331822, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: interactableIcon
+      value: 
+      objectReference: {fileID: 1396070763}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
 --- !u!1 &873225283 stripped
