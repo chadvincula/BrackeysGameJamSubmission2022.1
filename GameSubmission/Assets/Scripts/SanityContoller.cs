@@ -20,6 +20,8 @@ public class SanityContoller : MonoBehaviour
 
     private Vignette _vignette;
 
+    public GameObject flashBang;
+
     private void Awake()
     {
         _ppv = FindObjectOfType<PostProcessVolume>();
@@ -50,7 +52,7 @@ public class SanityContoller : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "TheBackrooms")
                 MaxSanityBR();
             else
-                ResetToDayOne();
+                StartCoroutine(MaxSanityOffice());
         }
 
         if (sanity < 0.4)
@@ -66,6 +68,8 @@ public class SanityContoller : MonoBehaviour
         }
         else
         {
+            _vignette.intensity.value = 0.3f;
+            _vignette.color.value = Color.black;
             _perlin.m_AmplitudeGain = 0;
         }
 
@@ -73,8 +77,6 @@ public class SanityContoller : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "TheBackrooms")
                 MinSanityBR();
-            else
-                MinSanityOffice();
         }
     }
     
@@ -89,11 +91,14 @@ public class SanityContoller : MonoBehaviour
     {
         SceneManager.LoadScene("TheBackrooms");
     }
-    
-    //This could trigger the vignette + textBox;
-    private void MinSanityOffice()
+
+    IEnumerator MaxSanityOffice()
     {
-        //Trigger vignette
+        _perlin.m_AmplitudeGain = 2;
+        _perlin.m_FrequencyGain = 2;
+        flashBang.SetActive(true);
+        yield return new WaitForSeconds(8);
+        ResetToDayOne();
     }
 
     public void SaveSanityToProgress()
