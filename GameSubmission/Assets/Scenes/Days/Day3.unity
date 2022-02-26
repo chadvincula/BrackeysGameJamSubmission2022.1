@@ -5395,8 +5395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I like your work ethic. Now put the box back before anybody figures out
-    who ate everything.
+  m_text: Incredible. I've never seen my sculpture look so magnificent.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
   m_sharedMaterial: {fileID: 8008263897082838438, guid: 394721b854e02b44ea9430dca078b4cb, type: 2}
@@ -7179,7 +7178,7 @@ MonoBehaviour:
   interactableIcon: {fileID: 1416233578}
   myTask: {fileID: 583151232}
   reward: {fileID: 0}
-  completedMessage: {fileID: 9696743}
+  completedMessage: {fileID: 406965460}
 --- !u!1 &1247547267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7613,7 +7612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431046516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1060635277}
@@ -8147,7 +8146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510358993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887882, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.01388216, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
