@@ -12,6 +12,11 @@ public class DailyText : MonoBehaviour
     private void Start()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        _text.SetText(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name != "TheBackrooms")
+            _text.SetText(SceneManager.GetActiveScene().name);
+        else
+        {
+            _text.SetText("???");
+        }
     }
 }

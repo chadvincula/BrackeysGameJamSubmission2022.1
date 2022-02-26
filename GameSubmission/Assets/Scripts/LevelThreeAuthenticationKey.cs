@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LevelThreeAuthenticationKey : InteractScript
 {
@@ -12,7 +13,8 @@ public class LevelThreeAuthenticationKey : InteractScript
         if (base._canInteract)
         {
             Progression._hasLevel3Key = true;
-            _sanityContoller.ProceedToNextDay();
+            //_sanityContoller.ProceedToNextDay();
+            SceneManager.LoadScene("Day5");
         }
     }
 

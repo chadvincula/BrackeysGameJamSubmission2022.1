@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Days/Day4.unity
     guid: 8e875fd444b29a244bd7c9d02fab9599
   - enabled: 1
-    path: Assets/Scenes/Days/Closet.unity
-    guid: 2a575f663c7204a4a8fa4c20b9a5fc61
-  - enabled: 1
     path: Assets/Scenes/Days/TheBackrooms.unity
     guid: 8d5300e15f0b7414096fe1e145ce73a8
+  - enabled: 1
+    path: Assets/Scenes/Days/Day5.unity
+    guid: 9e6e8b69b0ed5b745aa4f2d842eb2e48
   m_configObjects: {}

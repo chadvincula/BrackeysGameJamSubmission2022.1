@@ -15,7 +15,7 @@ public class SanityContoller : MonoBehaviour
     private Image _sanityFill;
     private Progression _progression;
     private PostProcessVolume _ppv;
-    
+    private AudioSource _audioSource;
     private CinemachineBasicMultiChannelPerlin _perlin;
 
     private Vignette _vignette;
@@ -27,6 +27,7 @@ public class SanityContoller : MonoBehaviour
         _ppv = FindObjectOfType<PostProcessVolume>();
         _ppv.profile.TryGetSettings(out _vignette);
         _perlin = FindObjectOfType<CinemachineBasicMultiChannelPerlin>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -50,7 +51,7 @@ public class SanityContoller : MonoBehaviour
         if (sanity >= 1)
         {
             if (SceneManager.GetActiveScene().name == "TheBackrooms")
-                MaxSanityBR();
+                StartCoroutine(MaxSanityBR());
             else
                 StartCoroutine(MaxSanityOffice());
         }
@@ -59,6 +60,7 @@ public class SanityContoller : MonoBehaviour
         {
             _vignette.intensity.value = 0.5f;
             _vignette.color.value = Color.black;
+            if (SceneManager.GetActiveScene().name == "TheBackrooms") _audioSource.Play();
         }
         else if (sanity > 0.8)
         {
@@ -76,13 +78,17 @@ public class SanityContoller : MonoBehaviour
         if (sanity <= 0)
         {
             if (SceneManager.GetActiveScene().name == "TheBackrooms")
-                MinSanityBR();
+                StartCoroutine(MaxSanityBR());
         }
     }
     
     //This could use a coroutine inside to make things dramatic. Polish.
-    private void MaxSanityBR()
+    IEnumerator MaxSanityBR()
     {
+        _perlin.m_AmplitudeGain = 2;
+        _perlin.m_FrequencyGain = 2;
+        flashBang.SetActive(true);
+        yield return new WaitForSeconds(8);
         SceneManager.LoadScene("TheBackrooms");
     }
     

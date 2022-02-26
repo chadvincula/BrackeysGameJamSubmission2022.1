@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     private CharacterController _body = null;
     private PlayerDetection _playerSensor = null;
     private SanityContoller _sanityContoller;
+    private AudioSource _audioSource;
 
     public float sanityDamage = -0.2f;
 
@@ -21,6 +22,7 @@ public class Entity : MonoBehaviour
         _body = GetComponent<CharacterController>();
         _playerSensor = GetComponentInChildren<PlayerDetection>();
         _sanityContoller = FindObjectOfType<SanityContoller>();
+        _audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -134,6 +136,7 @@ public class Entity : MonoBehaviour
         {
             HitPlayer();
             _sanityContoller.SetSanity(sanityDamage);
+            _audioSource.Play();
         }
         else
         {
