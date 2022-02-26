@@ -10,9 +10,20 @@ public class CarpetFluid : InteractScript
 
     public SanityContoller sanityContoller;
 
+    private AudioSource _soundEffect;
+
+    private void Start()
+    {
+        _soundEffect = GetComponent<AudioSource>();
+    }
+
     protected override void HandleInteract(InputAction.CallbackContext context)
     {
-        if(base._canInteract) sanityContoller.SetSanity(sanityIncrease);
+        if (base._canInteract)
+        {
+            sanityContoller.SetSanity(sanityIncrease);
+            _soundEffect.Play();
+        }
     }
 
     protected override void OnTriggerEnter(Collider other)

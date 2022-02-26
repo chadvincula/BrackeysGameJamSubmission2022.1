@@ -113,9 +113,10 @@ public class ListOfTasks : MonoBehaviour
 
             if(myTasks.Count <= 0)
             {
-                if(gameObject.scene.name == "Day4")
+                yield return new WaitForSeconds(4);
+                if (gameObject.scene.name == "Day4")
                 {
-                    if(_sanityContoller.GetSanity() < endOfDayFourThreshold)
+                    if (_sanityContoller.GetSanity() < endOfDayFourThreshold)
                         _sanityContoller.ResetToDayOne();
                     else
                         _sanityContoller.GoToBackrooms();

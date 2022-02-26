@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class FlashBang : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    public AudioSource audioSource;
     public AudioClip audioClip;
 
     private void Start()
     {
-        _audioSource = FindObjectOfType<AudioSource>();
-        _audioSource.Stop();
-        _audioSource.clip = audioClip;
-        _audioSource.Play();
+        audioSource.Stop();
+        audioSource.clip = audioClip;
+        audioSource.Play();
     }
 }
