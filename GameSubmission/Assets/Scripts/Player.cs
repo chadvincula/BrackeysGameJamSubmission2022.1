@@ -204,8 +204,8 @@ public class Player : MonoBehaviour
 
                 var inputDirection = _playerInput.Player.Move.ReadValue<float>();
                 float pushForce = (rb.mass <= 1f) ? inputDirection * groundSpeed : inputDirection * groundSpeed / rb.mass;
-                var movingVector = new Vector3(pushForce, 0f, 0f);
-                rb.AddForceAtPosition(movingVector, transform.position, ForceMode.Force);
+                var movingVector = new Vector3(pushForce * 10 * Time.deltaTime, 0f, 0f);
+                rb.AddForceAtPosition(movingVector, transform.position, ForceMode.Impulse);
             }
         }
     }
