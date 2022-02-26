@@ -104,7 +104,8 @@ public class SanityContoller : MonoBehaviour
         _perlin.m_FrequencyGain = 2;
         flashBang.SetActive(true);
         yield return new WaitForSeconds(8);
-        ResetToDayOne();
+        //ResetToDayOne();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SaveSanityToProgress()

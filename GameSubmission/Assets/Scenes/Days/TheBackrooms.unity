@@ -872,6 +872,7 @@ GameObject:
   - component: {fileID: 391245227}
   - component: {fileID: 391245229}
   - component: {fileID: 391245228}
+  - component: {fileID: 391245230}
   m_Layer: 5
   m_Name: TaskBody
   m_TagString: Untagged
@@ -995,6 +996,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391245226}
   m_CullTransparentMesh: 1
+--- !u!111 &391245230
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391245226}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e9c9f9adebd81c0419e5949f157f5f06, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e9c9f9adebd81c0419e5949f157f5f06, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &411549279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3007,7 +3024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913578997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.01999998, z: -11}
+  m_LocalPosition: {x: 0, y: 0.01999998, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1838062458}
@@ -3607,6 +3624,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9e9686ae943843b4ca4f0c493f5eaf9f, type: 3}
+    - target: {fileID: 6735365727519881535, guid: 9f38482cbdb00ce4481643f2c82c327c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7965415863699909079, guid: 9f38482cbdb00ce4481643f2c82c327c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5674,7 +5695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801414025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.01999998, z: -11}
+  m_LocalPosition: {x: 0, y: 0.01999998, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5830,7 +5851,7 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.45
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.2
+  m_DeadZoneWidth: 0.1
   m_DeadZoneHeight: 0.88
   m_DeadZoneDepth: 9
   m_UnlimitedSoftZone: 0
@@ -6538,6 +6559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1985579077}
     m_Modifications:
+    - target: {fileID: 1401442380694053044, guid: 9f38482cbdb00ce4481643f2c82c327c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2802128272844826072, guid: 9f38482cbdb00ce4481643f2c82c327c, type: 3}
       propertyPath: m_IsActive
       value: 0

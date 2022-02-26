@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sanityCost: -0.4
+  shortStaminaTextbox: {fileID: 0}
 --- !u!1 &2676425280967561942
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +389,7 @@ GameObject:
   - component: {fileID: 2676425281076519421}
   - component: {fileID: 2676425281076519363}
   - component: {fileID: 2676425281076519420}
+  - component: {fileID: 2704146095758335130}
   m_Layer: 5
   m_Name: TaskBody
   m_TagString: Untagged
@@ -511,3 +513,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!111 &2704146095758335130
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676425281076519422}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e9c9f9adebd81c0419e5949f157f5f06, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e9c9f9adebd81c0419e5949f157f5f06, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

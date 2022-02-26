@@ -3985,6 +3985,7 @@ GameObject:
   - component: {fileID: 1957483151}
   - component: {fileID: 1957483150}
   - component: {fileID: 1957483154}
+  - component: {fileID: 1957483155}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4087,3 +4088,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BiosOverlay: {fileID: 50398350}
+--- !u!114 &1957483155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957483149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c368b241f60e5429bce4ce2c454db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 5a0a7cacafbc73f4e8c2d087336794d8, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
