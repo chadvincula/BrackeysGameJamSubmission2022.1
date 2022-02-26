@@ -110,6 +110,9 @@ public class SanityContoller : MonoBehaviour
             case "Day3":
                 SceneManager.LoadScene("Day4");
                 break;
+            case "TheBackrooms":
+                SceneManager.LoadScene("Day5");
+                break;
         }
     }
 }
