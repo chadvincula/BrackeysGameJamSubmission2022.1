@@ -192,7 +192,7 @@ public class Entity : MonoBehaviour
         {
             if((_body.collisionFlags & CollisionFlags.Sides) != 0 && !_isStandingStill)
             {
-                Debug.LogError("Finna stand still");
+                Debug.Log("Finna stand still");
                 _canMove = false;
                 float timeToStandStill = 3f;
                 StartCoroutine(Wait(timeToStandStill));
