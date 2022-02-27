@@ -38,8 +38,13 @@ public class InteractableTask : InteractScript
                 else
                 {
                     currentTextbox = completedMessage;
-                    if(reward != null && reward.GetType() == typeof(InteractableTask))
-                        reward.enabled = true;
+                    if(reward != null)
+                    {
+                        if(reward.GetType() == typeof(InteractableTask))
+                            reward.enabled = true;
+                        else
+                            this.enabled = false;
+                    }
                     OnFinishedInteraction?.Invoke();
                 }
             }
@@ -65,7 +70,5 @@ public class InteractableTask : InteractScript
         base.interactableIcon.SetActive(false);
         if(completedMessage.activeInHierarchy)
             completedMessage.SetActive(false);
-        if(reward != null && reward.enabled)
-            this.enabled = false;
     }
 }
