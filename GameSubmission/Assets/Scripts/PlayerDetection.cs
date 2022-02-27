@@ -33,6 +33,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
+            Debug.Log(gameObject.name + " UNDETECTING PLAYER");
             playerDetected = false;
         }
     }

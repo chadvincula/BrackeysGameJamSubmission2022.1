@@ -46,11 +46,12 @@ public class Entity : MonoBehaviour
     {
         _playerSpotted = _playerSensors[0].playerDetected;
         _feltSomething = _playerSensors[1].playerDetected;
-        if(!_isStandingStill)
+
+        if(_playerSpotted)
+            Run(_moveDirection);
+        else if(!_isStandingStill)
         {
-            if(_playerSpotted)
-                Run(_moveDirection);
-            else if(_feltSomething)
+            if(_feltSomething)
             {
                 StartCoroutine(_entitySound.GoQuiet(2f));
                 StartCoroutine(Wait(1.5f));
@@ -133,6 +134,26 @@ public class Entity : MonoBehaviour
         StartCoroutine(Wait(1f));
     }
 
+    // Respawn at random points far away enough from player
+    private void RespawnFarEnoughFromPlayer(Vector3 playerPosition, float minDistance)
+    {
+        List<Vector3> validRespawnPoints = new List<Vector3>();
+        foreach (Vector3 respawnPoint in respawnPoints)
+        {
+            if(Mathf.Abs(playerPosition.x - respawnPoint.x) > minDistance)
+                validRespawnPoints.Add(respawnPoint);
+        }
+
+        float randomNum = Random.Range(0f, (float)validRespawnPoints.Count);
+        int randomIndex = Mathf.FloorToInt(randomNum);
+        Debug.Log("Random index: " + randomIndex);
+        _body.enabled = false; //Disable to allow warping
+        transform.localPosition = validRespawnPoints[randomIndex];
+        _body.enabled = true;
+        Debug.Log("Respawn Position: " + validRespawnPoints[randomIndex] + "\nTransform: " + transform.localPosition);
+        StartCoroutine(Wait(1f));
+    }
+
     private void BecomeTranslucent()
     {
         //Set alpha = remaining sanity lvl?
@@ -147,11 +168,18 @@ public class Entity : MonoBehaviour
         BecomeTranslucent();
     }
 
+    private void HitPlayer(Vector3 playerPosition)
+    {
+        Debug.Log("PLAYER HIT");
+        RespawnFarEnoughFromPlayer(playerPosition, 10f);
+        BecomeTranslucent();
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit other)
     {
         if(other.gameObject.TryGetComponent(out Player player))
         {
-            HitPlayer();
+            HitPlayer(player.transform.position);
             _sanityContoller.SetSanity(sanityDamage);
             _audioSource.Play();
         }
