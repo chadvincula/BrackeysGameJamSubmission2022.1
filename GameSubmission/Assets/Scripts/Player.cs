@@ -190,22 +190,19 @@ public class Player : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.moveDirection.y >= -0.3f)
+        if(hit.moveDirection.x != 0f)
         {
-            // Debug.Break();
             Rigidbody rb = hit.collider.attachedRigidbody;
             if(rb != null)
             {
-                // Debug.Break();
-                // Vector3 forceDirection = transform.position - hit.transform.position;
-                // forceDirection.y = 0f;
-                // forceDirection.Normalize();
-
-
                 var inputDirection = _playerInput.Player.Move.ReadValue<float>();
                 float pushForce = (rb.mass <= 1f) ? inputDirection * groundSpeed : inputDirection * groundSpeed / rb.mass;
                 var movingVector = new Vector3(pushForce * 10 * Time.deltaTime, 0f, 0f);
+                RigidbodyConstraints rbConstraints = rb.constraints;
+                rb.constraints = rbConstraints | RigidbodyConstraints.FreezePositionY;
+
                 rb.AddForceAtPosition(movingVector, transform.position, ForceMode.Impulse);
+                rb.constraints = rbConstraints ^ RigidbodyConstraints.FreezePositionY;
             }
         }
     }

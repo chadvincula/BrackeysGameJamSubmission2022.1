@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float walkSpeed = 6f, runSpeed = 9f, gravityMod = 1f, raycastDistance = 10f;
     [SerializeField] private Vector3[] respawnPoints;
     private float _gravity = -9.81f, _moveDirection = 1f;
-    private bool _playerSpotted = false, _feltSomething = false, _isStandingStill = false;
+    private bool _playerSpotted = false, _feltSomething = false, _isStandingStill = false, _canMove = true;
     private SpriteRenderer _spriteRenderer = null;
     private CharacterController _body = null;
     private PlayerDetection[] _playerSensors = null;
@@ -47,18 +47,22 @@ public class Entity : MonoBehaviour
         _playerSpotted = _playerSensors[0].playerDetected;
         _feltSomething = _playerSensors[1].playerDetected;
 
-        if(_playerSpotted)
-            Run(_moveDirection);
-        else if(!_isStandingStill)
+        if(_canMove)
         {
-            if(_feltSomething)
+            if(_playerSpotted)
+                Run(_moveDirection);
+            else if(!_isStandingStill)
             {
-                StartCoroutine(_entitySound.GoQuiet(2f));
-                StartCoroutine(Wait(1.5f));
+                if(_feltSomething)
+                {
+                    StartCoroutine(_entitySound.GoQuiet(2f));
+                    StartCoroutine(Wait(1.5f));
+                }
+                else
+                    Patrol(_moveDirection);
             }
-            else
-                Patrol(_moveDirection);
         }
+        
 
         //Then we move the body as affected by gravity.
         var fallingVector = new Vector3(0f, _gravity * gravityMod, 0f);
@@ -87,6 +91,7 @@ public class Entity : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         _isStandingStill = false;
         FlipEntity();
+        _canMove = true;
     }
 
     private void Walk(float direction)
@@ -187,7 +192,8 @@ public class Entity : MonoBehaviour
         {
             if((_body.collisionFlags & CollisionFlags.Sides) != 0 && !_isStandingStill)
             {
-                Debug.Log("Finna stand still");
+                Debug.LogError("Finna stand still");
+                _canMove = false;
                 float timeToStandStill = 3f;
                 StartCoroutine(Wait(timeToStandStill));
             }
