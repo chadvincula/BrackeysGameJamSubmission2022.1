@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerDetection : MonoBehaviour
 {
     public bool playerDetected { get; private set; } = false;
+
+    private AudioSource _aggroSounds;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _aggroSounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class PlayerDetection : MonoBehaviour
         {
             Debug.Log("DETECTED PLAYER");
             playerDetected = true;
+            _aggroSounds.Play();
         }
     }
 
