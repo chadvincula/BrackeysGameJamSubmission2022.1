@@ -13,6 +13,7 @@ public class Entity : MonoBehaviour
     private PlayerDetection[] _playerSensors = null;
     private SanityContoller _sanityContoller;
     private AudioSource _audioSource;
+    private EntitySounds _entitySound = null;
 
     public float sanityDamage = -0.2f;
 
@@ -23,6 +24,7 @@ public class Entity : MonoBehaviour
         _playerSensors = GetComponentsInChildren<PlayerDetection>();
         _sanityContoller = FindObjectOfType<SanityContoller>();
         _audioSource = GetComponent<AudioSource>();
+        _entitySound = FindObjectOfType<EntitySounds>();
     }
 
     private void OnDisable()
@@ -31,6 +33,7 @@ public class Entity : MonoBehaviour
         _playerSpotted = false;
         _feltSomething = false;
         _isStandingStill = false;
+        _entitySound.isTryingToBeQuiet = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -47,12 +50,14 @@ public class Entity : MonoBehaviour
         {
             if(_playerSpotted)
                 Run(_moveDirection);
+            else if(_feltSomething)
+            {
+                StartCoroutine(_entitySound.GoQuiet(2f));
+                StartCoroutine(Wait(1.5f));
+            }
             else
                 Patrol(_moveDirection);
         }
-
-        if(_feltSomething && !_isStandingStill)
-            StartCoroutine(Wait(1.5f));
 
         //Then we move the body as affected by gravity.
         var fallingVector = new Vector3(0f, _gravity * gravityMod, 0f);
@@ -91,6 +96,7 @@ public class Entity : MonoBehaviour
 
     private void Run(float direction)
     {
+        _entitySound.isTryingToBeQuiet = false;
         var movingVector = new Vector3(direction * runSpeed, 0f, 0f);
         _body.Move(movingVector * Time.deltaTime);
     }
@@ -98,6 +104,7 @@ public class Entity : MonoBehaviour
     //Return true if still partolling, false if not (player detected)
     private void Patrol(float direction)
     {
+        _entitySound.isTryingToBeQuiet = false;
         Walk(direction);
     }
 
