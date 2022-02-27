@@ -41,9 +41,10 @@ public class InteractableTask : InteractScript
                     if(reward != null)
                     {
                         if(reward.GetType() == typeof(InteractableTask))
+                        {
                             reward.enabled = true;
-                        else
                             this.enabled = false;
+                        }
                     }
                     OnFinishedInteraction?.Invoke();
                 }
