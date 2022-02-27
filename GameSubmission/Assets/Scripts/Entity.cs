@@ -68,12 +68,12 @@ public class Entity : MonoBehaviour
 
     private void FlipEntity()
     {
-        if (_body.velocity.x < 0 || transform.rotation.y == 0)
+        if(_moveDirection > 0f)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0); //Moving Left.
             _moveDirection = -1f;
         }
-        else if (_body.velocity.x > 0 || transform.rotation.y == 1)
+        else
         {
             transform.rotation = Quaternion.Euler(0, 0, 0); //Moving Right.
             _moveDirection = 1f;
