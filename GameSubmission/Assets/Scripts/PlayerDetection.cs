@@ -23,7 +23,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            Debug.Log("DETECTED PLAYER");
+            Debug.Log(gameObject.name + " DETECTED PLAYER");
             playerDetected = true;
             _aggroSounds.Play();
         }
