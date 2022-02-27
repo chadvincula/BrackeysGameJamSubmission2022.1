@@ -48,7 +48,7 @@ public class InteractableTask : InteractScript
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if(myTask != null && myTask.gameObject.activeInHierarchy && reward != null)
+        if(myTask != null && myTask.gameObject.activeInHierarchy && myTask.CanPerformTask(_sanityContoller) && reward != null)
             reward.enabled = true;
         base.OnTriggerEnter(other);
         base.interactableIcon.SetActive(true);
