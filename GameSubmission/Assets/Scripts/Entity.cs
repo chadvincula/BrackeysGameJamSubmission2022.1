@@ -7,10 +7,10 @@ public class Entity : MonoBehaviour
     [SerializeField] private float walkSpeed = 6f, runSpeed = 9f, gravityMod = 1f, raycastDistance = 10f;
     [SerializeField] private Vector3[] respawnPoints;
     private float _gravity = -9.81f, _moveDirection = 1f;
-    private bool _playerSpotted = false, _isStandingStill = false;
+    private bool _playerSpotted = false, _feltSomething = false, _isStandingStill = false;
     private SpriteRenderer _spriteRenderer = null;
     private CharacterController _body = null;
-    private PlayerDetection _playerSensor = null;
+    private PlayerDetection[] _playerSensors = null;
     private SanityContoller _sanityContoller;
     private AudioSource _audioSource;
 
@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _body = GetComponent<CharacterController>();
-        _playerSensor = GetComponentInChildren<PlayerDetection>();
+        _playerSensors = GetComponentsInChildren<PlayerDetection>();
         _sanityContoller = FindObjectOfType<SanityContoller>();
         _audioSource = GetComponent<AudioSource>();
     }
@@ -28,6 +28,8 @@ public class Entity : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        _playerSpotted = false;
+        _feltSomething = false;
         _isStandingStill = false;
     }
     // Start is called before the first frame update
@@ -39,16 +41,18 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _playerSpotted = _playerSensor.playerDetected;
-        if(_playerSpotted)
+        _playerSpotted = _playerSensors[0].playerDetected;
+        _feltSomething = _playerSensors[1].playerDetected;
+        if(!_isStandingStill)
         {
-            Run(_moveDirection);
-        }
-        else
-        {
-            if(!_isStandingStill)
+            if(_playerSpotted)
+                Run(_moveDirection);
+            else
                 Patrol(_moveDirection);
         }
+
+        if(_feltSomething && !_isStandingStill)
+            StartCoroutine(Wait(1.5f));
 
         //Then we move the body as affected by gravity.
         var fallingVector = new Vector3(0f, _gravity * gravityMod, 0f);
