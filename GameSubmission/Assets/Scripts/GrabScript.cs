@@ -47,12 +47,14 @@ public class GrabScript : MonoBehaviour
                 _grabbableObject.transform.parent = transform;
                 _grabbableObject.transform.localPosition = Vector3.zero;
                 _grabbableObject.GetComponent<Rigidbody>().isKinematic = true;
+                grabIcon.SetActive(false);
                 break;
             case true:
                 _isGrabbing = false;
                 _playerParent.SetGrabbing(false);
                 _grabbableObject.transform.parent = null;
                 _grabbableObject.GetComponent<Rigidbody>().isKinematic = false;
+                grabIcon.SetActive(true);
                 break;
         }
     }
