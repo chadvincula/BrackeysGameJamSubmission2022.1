@@ -58,6 +58,7 @@ public class SanityContoller : MonoBehaviour
 
         if (sanity < 0.4)
         {
+            _sanityFill.color = new Color32(255, 0, 0, 200);
             _vignette.intensity.value = 0.5f;
             _vignette.color.value = Color.black;
             if (SceneManager.GetActiveScene().name == "TheBackrooms") _audioSource.Play();
@@ -70,6 +71,7 @@ public class SanityContoller : MonoBehaviour
         }
         else
         {
+            _sanityFill.color = new Color32(255, 255, 255, 200);
             _vignette.intensity.value = 0.3f;
             _vignette.color.value = Color.black;
             _perlin.m_AmplitudeGain = 0;
