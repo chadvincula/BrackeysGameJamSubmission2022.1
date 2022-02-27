@@ -38,6 +38,8 @@ public class InteractableTask : InteractScript
                 else
                 {
                     currentTextbox = completedMessage;
+                    if(reward != null && reward.GetType() == typeof(InteractableTask))
+                        reward.enabled = true;
                     OnFinishedInteraction?.Invoke();
                 }
             }
@@ -49,7 +51,10 @@ public class InteractableTask : InteractScript
     protected override void OnTriggerEnter(Collider other)
     {
         if(myTask != null && myTask.gameObject.activeInHierarchy && myTask.CanPerformTask(_sanityContoller) && reward != null)
-            reward.enabled = true;
+        {
+            if(reward.GetType() != typeof(InteractableTask))
+                reward.enabled = true;
+        }
         base.OnTriggerEnter(other);
         base.interactableIcon.SetActive(true);
     }
