@@ -24,6 +24,12 @@ public class Entity : MonoBehaviour
         _sanityContoller = FindObjectOfType<SanityContoller>();
         _audioSource = GetComponent<AudioSource>();
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        _isStandingStill = false;
+    }
     // Start is called before the first frame update
     void Start()
     {
