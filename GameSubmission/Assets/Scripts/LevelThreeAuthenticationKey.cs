@@ -18,21 +18,6 @@ public class LevelThreeAuthenticationKey : InteractScript
         }
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        base.interactableIcon.SetActive(true);
-    }
-
-    protected override void OnTriggerExit(Collider other)
-    {
-        _canInteract = false;
-        _isInteracting = false;
-        // StartCoroutine(DelayedInactiveTextbox(3f));
-        base.interactableIcon.SetActive(false);
-
-    }
-
     // private IEnumerator DelayedInactiveTextbox(float seconds)
     // {
     //     yield return new WaitForSeconds(seconds);

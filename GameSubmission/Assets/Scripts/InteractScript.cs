@@ -55,6 +55,7 @@ public class InteractScript : MonoBehaviour
         _canInteract = true;
         // if(other.gameObject.GetComponent<Player>() != null)
         //     _player = other.gameObject.GetComponent<Player>();
+        interactableIcon.SetActive(true);
     }
 
     //Makes sure the player doesn't interact with something out of range.
@@ -64,5 +65,6 @@ public class InteractScript : MonoBehaviour
         _isInteracting = false;
         if(textBox.activeInHierarchy)
             textBox.SetActive(false);
+        interactableIcon.SetActive(false);
     }
 }

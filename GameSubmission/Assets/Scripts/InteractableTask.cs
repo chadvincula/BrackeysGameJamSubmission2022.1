@@ -62,13 +62,11 @@ public class InteractableTask : InteractScript
                 reward.enabled = true;
         }
         base.OnTriggerEnter(other);
-        base.interactableIcon.SetActive(true);
     }
 
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        base.interactableIcon.SetActive(false);
         if(completedMessage.activeInHierarchy)
             completedMessage.SetActive(false);
     }

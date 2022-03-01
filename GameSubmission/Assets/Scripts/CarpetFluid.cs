@@ -25,17 +25,4 @@ public class CarpetFluid : InteractScript
             _soundEffect.Play();
         }
     }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        base.interactableIcon.SetActive(true);
-    }
-
-    protected override void OnTriggerExit(Collider other)
-    {
-        _canInteract = false;
-        _isInteracting = false;
-        base.interactableIcon.SetActive(false);
-    }
 }
