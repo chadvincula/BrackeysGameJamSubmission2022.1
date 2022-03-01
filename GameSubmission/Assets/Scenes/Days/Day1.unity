@@ -1312,7 +1312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241400313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887644, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.013886273, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3333,14 +3333,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 631094003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28141c05301d5134c8b0f5c07b245ff0, type: 3}
+  m_Script: {fileID: 11500000, guid: 845da2da7da1fc34aa2e0a7346625029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sanityContoller: {fileID: 895001665}
-  myTask: {fileID: 162275794}
-  roomTag: BreakRoom
-  completedMessage: {fileID: 74845089}
-  completedMessageDuration: 6
+  textBox: {fileID: 1729889356}
+  interactableIcon: {fileID: 178510088}
+  isMobile: 1
 --- !u!65 &631094006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5494,7 +5492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231688714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013887644, y: 0.033889055, z: -11}
+  m_LocalPosition: {x: 0.013886273, y: 0.033889055, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 511125032}
@@ -6037,6 +6035,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5813991715954331813, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
   m_PrefabInstance: {fileID: 1850988704}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1431551740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431551739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28141c05301d5134c8b0f5c07b245ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sanityContoller: {fileID: 895001665}
+  myTask: {fileID: 162275794}
+  roomTag: BreakRoom
+  completedMessage: {fileID: 74845089}
+  completedMessageDuration: 6
 --- !u!1 &1439554640
 GameObject:
   m_ObjectHideFlags: 0
