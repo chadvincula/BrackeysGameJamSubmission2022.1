@@ -69,7 +69,7 @@ public class HidingSpot : InteractScript
         // {
         //     button.enabled = true;
         // }
-        _player.buttonIcons[0].enabled = true; // Grab Icon
+        // _player.buttonIcons[0].enabled = true; // Grab Icon
         iconParent.enabled = true;
         
         _playerInHiding = false;
