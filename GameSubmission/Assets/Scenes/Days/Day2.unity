@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 122298898}
   - component: {fileID: 122298900}
   - component: {fileID: 122298899}
-  m_Layer: 18
+  m_Layer: 12
   m_Name: ShiftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
