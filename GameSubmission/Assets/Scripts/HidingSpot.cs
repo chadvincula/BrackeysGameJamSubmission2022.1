@@ -6,11 +6,6 @@ public class HidingSpot : InteractScript
 {
     [SerializeField] private bool isMobile = false;
     private bool _playerInHiding = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -38,10 +33,6 @@ public class HidingSpot : InteractScript
     {
         _player.SetHidden(true);
 
-        // foreach (var button in _player.buttonIcons)
-        // {
-        //     button.enabled = false;
-        // }
         _player.buttonIcons[0].enabled = false; // Grab Icon
         iconParent.enabled = false;
         
@@ -65,11 +56,6 @@ public class HidingSpot : InteractScript
     {
         _player.SetHidden(false);
         
-        // foreach (var button in _player.buttonIcons)
-        // {
-        //     button.enabled = true;
-        // }
-        // _player.buttonIcons[0].enabled = true; // Grab Icon
         iconParent.enabled = true;
         
         _playerInHiding = false;

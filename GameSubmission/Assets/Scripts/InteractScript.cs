@@ -56,9 +56,6 @@ public class InteractScript : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         _canInteract = true;
-        // if(other.gameObject.GetComponent<Player>() != null)
-        //     _player = other.gameObject.GetComponent<Player>();
-        // interactableIcon.SetActive(true);
         if(!iconParent.enabled)
             iconParent.enabled = true;
     }
@@ -70,7 +67,6 @@ public class InteractScript : MonoBehaviour
         _isInteracting = false;
         if(textBox.activeInHierarchy)
             textBox.SetActive(false);
-        // interactableIcon.SetActive(false);
         if(iconParent.enabled)
             iconParent.enabled = false;
     }

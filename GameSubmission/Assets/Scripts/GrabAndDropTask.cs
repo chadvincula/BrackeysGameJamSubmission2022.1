@@ -13,18 +13,6 @@ public class GrabAndDropTask : MonoBehaviour
     public static event DeliveredGoods OnDeliveredGoods;
     public delegate void DeliveredGoods();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag(roomTag))

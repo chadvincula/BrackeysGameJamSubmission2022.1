@@ -13,14 +13,7 @@ public class LevelThreeAuthenticationKey : InteractScript
         if (base._canInteract)
         {
             Progression._hasLevel3Key = true;
-            //_sanityContoller.ProceedToNextDay();
             SceneManager.LoadScene("Day5");
         }
     }
-
-    // private IEnumerator DelayedInactiveTextbox(float seconds)
-    // {
-    //     yield return new WaitForSeconds(seconds);
-    //     currentTextbox.SetActive(false);
-    // }
 }

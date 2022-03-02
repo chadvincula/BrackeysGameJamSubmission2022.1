@@ -11,12 +11,6 @@ public class InteractableTask : InteractScript
     public static event InteractionFinished OnFinishedInteraction;
     public delegate void InteractionFinished();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     protected override void PerformInteraction()
     {
         if(!textBox.activeInHierarchy && !completedMessage.activeInHierarchy)

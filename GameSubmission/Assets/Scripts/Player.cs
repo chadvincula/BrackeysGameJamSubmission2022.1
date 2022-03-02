@@ -118,8 +118,6 @@ public class Player : MonoBehaviour
                 visibilityScript.EnterLayer4();
                 break;
             case "EnterClosetRoom":
-                // if(smallBox != null && !GetGrabbing() && !GetHidden()) smallBox.SetActive(false);
-                // _body.Move(new Vector3(0,0,2));
                 visibilityScript.ObjectEnterLayer2(this.transform);
                 GetGrabbing();
                 break;
@@ -144,8 +142,6 @@ public class Player : MonoBehaviour
                 visibilityScript.LeaveLayer4();
                 break;
             case "LeaveClosetRoom":
-                // if(smallBox != null) smallBox.SetActive(true);
-                // _body.Move(new Vector3(0,0,-2));
                 visibilityScript.ObjectLeaveLayer2(this.transform);
                 GetGrabbing();
                 break;
