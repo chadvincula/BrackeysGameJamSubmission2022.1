@@ -27,9 +27,11 @@ public class GrabAndDropTask : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == roomTag)
+        if(other.gameObject.CompareTag(roomTag))
         {
-            if(transform.parent == null)
+            bool isBeingHeld = transform.parent.TryGetComponent(out GrabScript grabBox);
+            bool isHidingThePlayer = transform.parent.TryGetComponent(out Player player);
+            if(!isBeingHeld && !isHidingThePlayer)
             {
                 if(myTask != null && myTask.gameObject.activeInHierarchy)
                 {
