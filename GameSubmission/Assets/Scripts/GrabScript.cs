@@ -52,7 +52,7 @@ public class GrabScript : MonoBehaviour
             case true:
                 _isGrabbing = false;
                 _playerParent.SetGrabbing(false);
-                _grabbableObject.transform.parent = null;
+                _grabbableObject.transform.parent = transform.parent.parent; // Make sibling of player in hierarchy
                 _grabbableObject.GetComponent<Rigidbody>().isKinematic = false;
                 grabIconParent.enabled = true;
                 break;
