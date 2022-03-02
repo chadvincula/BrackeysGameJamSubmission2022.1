@@ -11,13 +11,6 @@ public class InteractableTask : InteractScript
     public static event InteractionFinished OnFinishedInteraction;
     public delegate void InteractionFinished();
 
-    private AudioSource _audioSource;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -50,7 +43,6 @@ public class InteractableTask : InteractScript
                 }
             }
             base.PerformInteraction();
-            _audioSource.Play();
         }
     }
 

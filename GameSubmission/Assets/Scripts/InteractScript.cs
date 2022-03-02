@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InteractScript : MonoBehaviour
 {
     private PlayerControls _playerControls;
+    private AudioSource _audioSource;
     protected bool _canInteract = false, _isInteracting = false;
     protected Player _player;
     protected GameObject currentTextbox = null;
@@ -19,6 +20,7 @@ public class InteractScript : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
         _playerControls = new PlayerControls();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -48,6 +50,7 @@ public class InteractScript : MonoBehaviour
     {
         Debug.Log("Performing Interaction from " + gameObject.name);
         currentTextbox.SetActive(true);
+        _audioSource.Play();
     }
 
     //Triggers when in range to interact with something.
