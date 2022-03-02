@@ -139,6 +139,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 918386441}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
       objectReference: {fileID: 1201778970}
@@ -375,6 +383,14 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
@@ -735,6 +751,14 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
@@ -1174,7 +1198,7 @@ GameObject:
   - component: {fileID: 465605424}
   - component: {fileID: 465605421}
   m_Layer: 0
-  m_Name: Square
+  m_Name: LevelThreeAuthenticationKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,8 +1217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 918386441}
-  interactableIcon: {fileID: 1201778970}
-  _sanityContoller: {fileID: 0}
+  iconParent: {fileID: 1201778973}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
+  _sanityContoller: {fileID: 1252714773}
 --- !u!212 &465605422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1290,7 +1315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &487800389
 Transform:
   m_ObjectHideFlags: 0
@@ -1328,7 +1353,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487800388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1565,6 +1590,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallpaperHidingSpot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057877, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2398,7 +2435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &725482098
 Transform:
   m_ObjectHideFlags: 0
@@ -2436,7 +2473,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725482097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2672,7 +2709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &847366074
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2680,7 +2717,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847366073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3263,6 +3300,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 918386441}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
       objectReference: {fileID: 1201778970}
@@ -3784,7 +3829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1201778971
 Transform:
   m_ObjectHideFlags: 0
@@ -3822,7 +3867,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201778970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4152,6 +4197,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallpaperHidingSpot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057876, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -5252,6 +5309,14 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
@@ -6373,7 +6438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10863459210f03a4496fefdc401d58db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabIcon: {fileID: 725482097}
+  grabIconParent: {fileID: 0}
 --- !u!54 &2037807231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6543,6 +6608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61e4cae230d4474d91c494c41204895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTryingToBeQuiet: 0
 --- !u!1 &2071252477
 GameObject:
   m_ObjectHideFlags: 0
@@ -6834,6 +6900,14 @@ PrefabInstance:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 918386441}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1201778973}
+    - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     - target: {fileID: 5646713042611057451, guid: d1bd552369da8834abcec89610e557bf, type: 3}
       propertyPath: interactableIcon
       value: 
