@@ -29,7 +29,7 @@ public class GrabAndDropTask : MonoBehaviour
     {
         if(other.gameObject.tag == roomTag)
         {
-            if(transform.parent.parent == null)
+            if(transform.parent == null)
             {
                 if(myTask != null && myTask.gameObject.activeInHierarchy)
                 {
