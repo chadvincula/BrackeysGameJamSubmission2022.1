@@ -14,7 +14,7 @@ public class GrabScript : MonoBehaviour
 
     private bool _canGrab = false, _isGrabbing = false;
 
-    public GameObject grabIcon;
+    public SpriteRenderer grabIconParent;
 
     private void Awake()
     {
@@ -47,14 +47,14 @@ public class GrabScript : MonoBehaviour
                 _grabbableObject.transform.parent = transform;
                 _grabbableObject.transform.localPosition = Vector3.zero;
                 _grabbableObject.GetComponent<Rigidbody>().isKinematic = true;
-                grabIcon.SetActive(false);
+                grabIconParent.enabled = false;
                 break;
             case true:
                 _isGrabbing = false;
                 _playerParent.SetGrabbing(false);
                 _grabbableObject.transform.parent = null;
                 _grabbableObject.GetComponent<Rigidbody>().isKinematic = false;
-                grabIcon.SetActive(true);
+                grabIconParent.enabled = true;
                 break;
         }
     }
@@ -65,7 +65,7 @@ public class GrabScript : MonoBehaviour
         if (_isGrabbing) return;
         _canGrab = true;
         _grabbableObject = other.gameObject;
-        grabIcon.SetActive(true);
+        grabIconParent.enabled = true;
     }
 
     //Removes the reference once the player is out of range. Can't grab what's not there.
@@ -74,6 +74,6 @@ public class GrabScript : MonoBehaviour
         if (_isGrabbing) return;
         _canGrab = false;
         _grabbableObject = null;
-        grabIcon.SetActive(false);
+        grabIconParent.enabled = false;
     }
 }

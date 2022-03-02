@@ -38,10 +38,11 @@ public class HidingSpot : InteractScript
     {
         _player.SetHidden(true);
 
-        foreach (var button in _player.buttonIcons)
-        {
-            button.enabled = false;
-        }
+        // foreach (var button in _player.buttonIcons)
+        // {
+        //     button.enabled = false;
+        // }
+        iconParent.enabled = false;
         
         _playerInHiding = true;
         if(isMobile)
@@ -63,10 +64,11 @@ public class HidingSpot : InteractScript
     {
         _player.SetHidden(false);
         
-        foreach (var button in _player.buttonIcons)
-        {
-            button.enabled = true;
-        }
+        // foreach (var button in _player.buttonIcons)
+        // {
+        //     button.enabled = true;
+        // }
+        iconParent.enabled = true;
         
         _playerInHiding = false;
         if(isMobile)

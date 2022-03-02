@@ -12,7 +12,8 @@ public class InteractScript : MonoBehaviour
     protected GameObject currentTextbox = null;
 
     public GameObject textBox;
-    public GameObject interactableIcon;
+    [SerializeField] protected SpriteRenderer iconParent = null;
+    [SerializeField] protected Sprite iconSprite = null;
 
     protected virtual void Awake()
     {
@@ -55,7 +56,10 @@ public class InteractScript : MonoBehaviour
         _canInteract = true;
         // if(other.gameObject.GetComponent<Player>() != null)
         //     _player = other.gameObject.GetComponent<Player>();
-        interactableIcon.SetActive(true);
+        // interactableIcon.SetActive(true);
+        if(!iconParent.enabled)
+            iconParent.enabled = true;
+        iconParent.sprite = iconSprite;
     }
 
     //Makes sure the player doesn't interact with something out of range.
@@ -65,6 +69,8 @@ public class InteractScript : MonoBehaviour
         _isInteracting = false;
         if(textBox.activeInHierarchy)
             textBox.SetActive(false);
-        interactableIcon.SetActive(false);
+        // interactableIcon.SetActive(false);
+        if(iconParent.enabled && iconParent.sprite == iconSprite)
+            iconParent.enabled = false;
     }
 }

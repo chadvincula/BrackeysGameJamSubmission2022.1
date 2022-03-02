@@ -162,13 +162,13 @@ public class Player : MonoBehaviour
             SpriteRenderer shiftDownButton = buttonIcons[3];
             if(other.tag.Contains("Enter"))
             {
-                shiftUpButton.gameObject.SetActive(_canShift);
-                shiftDownButton.gameObject.SetActive(!_canShift);
+                shiftUpButton.enabled = _canShift;
+                shiftDownButton.enabled = !_canShift;
             }
             else if(other.tag.Contains("Leave"))
             {
-                shiftDownButton.gameObject.SetActive(_canShift);
-                shiftUpButton.gameObject.SetActive(!_canShift);
+                shiftDownButton.enabled = _canShift;
+                shiftUpButton.enabled = !_canShift;
             }
         }
     }
@@ -183,8 +183,8 @@ public class Player : MonoBehaviour
             shiftAction = null;
             SpriteRenderer shiftUpButton = buttonIcons[2];
             SpriteRenderer shiftDownButton = buttonIcons[3];
-            shiftUpButton.gameObject.SetActive(_canShift);
-            shiftDownButton.gameObject.SetActive(_canShift);
+            shiftUpButton.enabled = _canShift;
+            shiftDownButton.enabled = _canShift;
         }
     }
 
