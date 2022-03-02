@@ -72,7 +72,10 @@ public class HidingSpot : InteractScript
         
         _playerInHiding = false;
         if(isMobile)
-            transform.parent.parent = null;
+        {
+            Transform parentOfPlayer = transform.parent.parent.parent;
+            transform.parent.parent = parentOfPlayer;
+        }
         else
             _player.enabled = true;
         SpriteRenderer spriteRenderer = _player.GetComponent<SpriteRenderer>();
@@ -83,14 +86,14 @@ public class HidingSpot : InteractScript
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (_player.GetGrabbing()) return;
-        if(other.transform.parent.TryGetComponent(out Player player))
+        if (_player.GetGrabbing() || _player.GetHidden()) return;
+        if(other.transform.parent != null && other.transform.parent.TryGetComponent(out Player player))
             base.OnTriggerEnter(other);
     }
 
     protected override void OnTriggerExit(Collider other)
     {
-        if(other.transform.parent.TryGetComponent(out Player player))
+        if(other.transform.parent != null && other.transform.parent.TryGetComponent(out Player player))
             base.OnTriggerExit(other);
     }
 }
