@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5813991715102155549}
   - component: {fileID: 5813991715102155546}
+  - component: {fileID: 9094934536096502761}
+  - component: {fileID: 1151050977857575435}
   m_Layer: 10
   m_Name: CollisionBox
   m_TagString: Untagged
@@ -43,6 +45,35 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.65, y: 0.65, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9094934536096502761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813991715102155548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845da2da7da1fc34aa2e0a7346625029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 0}
+  iconParent: {fileID: 0}
+  iconSprite: {fileID: 0}
+  isMobile: 1
+--- !u!65 &1151050977857575435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813991715102155548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5813991715954331813
 GameObject:
