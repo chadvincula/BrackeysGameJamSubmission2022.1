@@ -1971,6 +1971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallBox
       objectReference: {fileID: 0}
+    - target: {fileID: 5813991715954331813, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5813991715954331822, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
       propertyPath: textBox
       value: 
@@ -1979,6 +1983,18 @@ PrefabInstance:
       propertyPath: interactableIcon
       value: 
       objectReference: {fileID: 1416233578}
+    - target: {fileID: 9094934536096502761, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 1977427963}
+    - target: {fileID: 9094934536096502761, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: iconParent
+      value: 
+      objectReference: {fileID: 1416233580}
+    - target: {fileID: 9094934536096502761, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
 --- !u!4 &402401703 stripped
@@ -1986,18 +2002,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5813991715954331809, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
   m_PrefabInstance: {fileID: 402401702}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &402401704 stripped
+--- !u!1 &402401707 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5813991715102155548, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5813991715954331813, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
   m_PrefabInstance: {fileID: 402401702}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &402401705
+--- !u!114 &402401710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402401704}
+  m_GameObject: {fileID: 402401707}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28141c05301d5134c8b0f5c07b245ff0, type: 3}
@@ -2008,24 +2024,6 @@ MonoBehaviour:
   roomTag: BossOffice
   completedMessage: {fileID: 9696743}
   completedMessageDuration: 6
---- !u!65 &402401706
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402401704}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &402401707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5813991715954331813, guid: a0e3f434b20d9e74aad705f51d03c6e7, type: 3}
-  m_PrefabInstance: {fileID: 402401702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &406965460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3614,7 +3612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &765400824
 Animation:
   m_ObjectHideFlags: 0
@@ -3638,7 +3636,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765400823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6267,7 +6265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10863459210f03a4496fefdc401d58db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabIcon: {fileID: 765400823}
+  grabIconParent: {fileID: 765400825}
 --- !u!54 &1082722052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7145,7 +7143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 48363898}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 972411807}
   reward: {fileID: 0}
@@ -7400,7 +7399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 771310513}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 583151232}
   reward: {fileID: 0}
@@ -7927,7 +7927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &1416233579
 Animation:
   m_ObjectHideFlags: 0
@@ -7951,7 +7951,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416233578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8135,7 +8135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 79971505}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 666967825}
   reward: {fileID: 0}
@@ -8507,7 +8508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1506147888
 Transform:
   m_ObjectHideFlags: 0
@@ -8545,7 +8546,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506147887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9339,7 +9340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 48363898}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   sanityIncrease: 0.1
   sanityContoller: {fileID: 1209574813}
 --- !u!212 &1629750070
@@ -10061,7 +10063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1488173516}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 2080014783}
   reward: {fileID: 0}
@@ -10337,7 +10340,7 @@ GameObject:
   - component: {fileID: 1777407583}
   - component: {fileID: 1777407585}
   - component: {fileID: 1777407584}
-  m_Layer: 18
+  m_Layer: 12
   m_Name: ShiftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12256,7 +12259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1122377071}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 1046214148}
   reward: {fileID: 2112682107}
@@ -12274,7 +12278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1835483677}
-  interactableIcon: {fileID: 1416233578}
+  iconParent: {fileID: 1416233580}
+  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 1209574813}
   myTask: {fileID: 791554903}
   reward: {fileID: 0}
@@ -12583,7 +12588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2128733538
 Transform:
   m_ObjectHideFlags: 0
@@ -12621,7 +12626,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128733537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
