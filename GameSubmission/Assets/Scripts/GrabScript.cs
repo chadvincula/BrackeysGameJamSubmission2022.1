@@ -62,7 +62,7 @@ public class GrabScript : MonoBehaviour
     //Triggers when in range to grab something.
     private void OnTriggerEnter(Collider other)
     {
-        if (_isGrabbing) return;
+        if (_isGrabbing || _playerParent.GetHidden()) return;
         _canGrab = true;
         _grabbableObject = other.gameObject;
         grabIconParent.enabled = true;
@@ -71,7 +71,7 @@ public class GrabScript : MonoBehaviour
     //Removes the reference once the player is out of range. Can't grab what's not there.
     private void OnTriggerExit(Collider other)
     {
-        if (_isGrabbing) return;
+        if (_isGrabbing || _playerParent.GetHidden()) return;
         _canGrab = false;
         _grabbableObject = null;
         grabIconParent.enabled = false;
