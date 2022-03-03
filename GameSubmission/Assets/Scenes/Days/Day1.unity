@@ -899,7 +899,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1511,7 +1511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1585300342}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   sanityIncrease: 0.1
   sanityContoller: {fileID: 895001665}
 --- !u!65 &246511645
@@ -3655,7 +3654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1113146176}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 895001665}
   myTask: {fileID: 0}
   reward: {fileID: 0}
@@ -4718,7 +4716,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 282991758}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 895001665}
   myTask: {fileID: 2140529049}
   reward: {fileID: 0}
@@ -6298,7 +6295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1370060304}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
 --- !u!65 &1432685958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6739,7 +6735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1719181241}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 895001665}
   myTask: {fileID: 0}
   reward: {fileID: 0}
@@ -8538,7 +8533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1585300342}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 895001665}
   myTask: {fileID: 0}
   reward: {fileID: 0}
@@ -8833,7 +8827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 450862979}
   iconParent: {fileID: 178510090}
-  iconSprite: {fileID: 21300000, guid: 5b20480cc43a0254f95ce15d4e0aa0ee, type: 3}
   _sanityContoller: {fileID: 895001665}
   myTask: {fileID: 1864615589}
   reward: {fileID: 0}
