@@ -41,7 +41,7 @@ public class GrabScript : MonoBehaviour
         switch (_isGrabbing)
         {
             //This just makes sure that there is a reference to a grabbable object.
-            case false when _grabbableObject != null:
+            case false when (_grabbableObject != null && _grabbableObject.activeInHierarchy):
                 _isGrabbing = true;
                 _playerParent.SetGrabbing(true);
                 _grabbableObject.transform.parent = transform;
