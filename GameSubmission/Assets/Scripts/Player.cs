@@ -118,6 +118,8 @@ public class Player : MonoBehaviour
                 visibilityScript.EnterLayer4();
                 break;
             case "EnterClosetRoom":
+                if(buttonIcons[0].enabled)
+                    buttonIcons[0].enabled = false;
                 visibilityScript.ObjectEnterLayer2(this.transform);
                 GetGrabbing();
                 break;
@@ -142,6 +144,8 @@ public class Player : MonoBehaviour
                 visibilityScript.LeaveLayer4();
                 break;
             case "LeaveClosetRoom":
+                if(buttonIcons[0].enabled)
+                    buttonIcons[0].enabled = false;
                 visibilityScript.ObjectLeaveLayer2(this.transform);
                 GetGrabbing();
                 break;

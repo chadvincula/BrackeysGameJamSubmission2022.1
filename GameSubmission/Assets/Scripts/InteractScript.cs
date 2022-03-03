@@ -30,6 +30,8 @@ public class InteractScript : MonoBehaviour
 
     private void OnDisable()
     {
+        if(iconParent.enabled)
+            iconParent.enabled = false;
         _playerControls.Disable();
         _playerControls.Player.Interact.performed -= HandleInteract;
     }
